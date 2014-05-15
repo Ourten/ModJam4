@@ -1,4 +1,4 @@
-package fr.darkteck;
+package fr.darktech;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

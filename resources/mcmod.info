@@ -1,8 +1,8 @@
 [
 {
-  "modid": "DarkTeck",
-  "name": "DarkTeck Mod",
-  "description": "DakTeck placeholder mod.",
+  "modid": "DarkTech",
+  "name": "DarkTech Mod",
+  "description": "DakTech placeholder mod.",
   "version": "0.1",
   "mcversion": "${mcversion}",
   "url": "http://forum.ironcraft.fr/",

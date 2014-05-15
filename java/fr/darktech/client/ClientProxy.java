@@ -1,6 +1,6 @@
-package fr.darkteck.client;
+package fr.darktech.client;
 
-import fr.darkteck.common.CommonProxy;
+import fr.darktech.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy {
 

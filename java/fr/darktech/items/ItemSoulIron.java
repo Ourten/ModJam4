@@ -1,10 +1,10 @@
-package fr.darkteck.items;
+package fr.darktech.items;
 
-import fr.darkteck.DarkTeck;
+import fr.darktech.DarkTech;
 import net.minecraft.item.Item;
 
 public class ItemSoulIron extends Item {
 	public ItemSoulIron() {
-		this.setCreativeTab(DarkTeck.tabDarkTech);
+		this.setCreativeTab(DarkTech.tabDarkTech);
 	}
 }

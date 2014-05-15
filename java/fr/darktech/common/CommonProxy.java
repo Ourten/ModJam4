@@ -1,4 +1,4 @@
-package fr.darkteck.common;
+package fr.darktech.common;
 
 public class CommonProxy {
 

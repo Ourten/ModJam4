@@ -1,4 +1,4 @@
-package fr.darkteck;
+package fr.darktech;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -9,16 +9,16 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import fr.darkteck.common.CommonProxy;
-import fr.darkteck.items.ItemSoulIron;
+import fr.darktech.common.CommonProxy;
+import fr.darktech.items.ItemSoulIron;
 
-@Mod(modid = "DarkTeck", version = "0.1")
-public class DarkTeck {
+@Mod(modid = "DarkTech", version = "0.1")
+public class DarkTech {
 
-    @Instance("DarkTeck")
-    public static DarkTeck instance;
+    @Instance("DarkTech")
+    public static DarkTech instance;
 
-    @SidedProxy(clientSide = "fr.darkteck.client.ClientProxy", serverSide = "fr.darkteck.common.CommonProxy")
+    @SidedProxy(clientSide = "fr.darktech.client.ClientProxy", serverSide = "fr.darktech.common.CommonProxy")
     public static CommonProxy proxy;
     
     public static final CreativeTabs tabDarkTech = new CreativeTabDarkTech("DarkTech");
