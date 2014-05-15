@@ -1,0 +1,16 @@
+[
+{
+  "modid": "DarkTeck",
+  "name": "DarkTeck Mod",
+  "description": "DakTeck placeholder mod.",
+  "version": "0.1",
+  "mcversion": "${mcversion}",
+  "url": "http://forum.ironcraft.fr/",
+  "updateUrl": "",
+  "authorList": ["Thog92", "Ourten", "NoNiMad", "Ghosteamplay"],
+  "credits": "10 bitcoins",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
