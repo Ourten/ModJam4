@@ -19,6 +19,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 	private boolean revertedLight = false;
 	
 	private float deploy = 0f;
+	private int state = 0;
 	
 	@Override
 	public void renderTileEntityAt(TileEntity arg0, double arg1, double arg2,
@@ -33,10 +34,17 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		GL11.glTranslated(x+0.5, y+1.5, z+0.5);
 		GL11.glRotated(180, 0, 0, 1);
 		this.bindTexture(TEX_GENERATOR);
-		MODEL_GENERATOR.renderBase();
-		MODEL_GENERATOR.renderWalls();
-		MODEL_GENERATOR.renderSecondWalls();
-		MODEL_GENERATOR.renderWallPillars();
+		
+		//MODEL_GENERATOR.renderBase();
+		
+		if(state == 1)
+		{
+			MODEL_GENERATOR.renderWalls(deploy);
+		}
+		else if(state > 1)
+			MODEL_GENERATOR.renderWalls();
+		//MODEL_GENERATOR.renderSecondWalls();
+		//MODEL_GENERATOR.renderWallPillars();
 		
 		GL11.glColor3d(0, varLight, 0);
 		GL11.glDisable(GL11.GL_LIGHTING);
@@ -45,12 +53,12 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		MODEL_GENERATOR.renderRedstone();
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
-		//GL11.glPopMatrix();
-		//GL11.glPushMatrix();
 		GL11.glColor3d(1, 1, 1);
-	//	GL11.glTranslated(x+0.5, y+1.5-deploy, z+0.5);
-		//GL11.glScaled(1, deploy, 1);
-		MODEL_GENERATOR.renderPillars(deploy);
+		
+		if(state == 0)
+			MODEL_GENERATOR.renderPillars(deploy);
+		else
+			MODEL_GENERATOR.renderPillars();
 		GL11.glPopMatrix();
 		
 		if(varLight>=0.9f)
@@ -66,6 +74,9 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		if(deploy<0.999)
 			deploy = deploy+0.001f;
 		else
+		{
 			deploy = 0;
+			state = state;
+		}
 	}
 }
