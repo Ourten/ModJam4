@@ -92,11 +92,11 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 			varLight = varLight+0.003f;
 		
 		if(deploy<0.999)
-			deploy = deploy+0.001f;
+			deploy = deploy+0.003f;
 		else
 		{
 			deploy = 0;
-			state =2;
+			state =state+1;
 		}
 	}
 }
