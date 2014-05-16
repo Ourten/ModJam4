@@ -20,7 +20,7 @@ public class NetworkManager {
     public boolean registerNetwork(String networkName, Network net)
     {
 	if(list.containsKey(networkName)) return false;
-	else if(list.putIfAbsent(networkName, net) != null) { return true;}
+	//else if(list.putIfAbsent(networkName, net) != null){ return true;}
 	
 	return false;
     }
