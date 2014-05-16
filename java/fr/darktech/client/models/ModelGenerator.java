@@ -199,7 +199,7 @@ public class ModelGenerator extends ModelBase
 		WallD8.renderWithRotation(0.0625f);
 	}
 	
-	public void renderPillars()
+	public void renderPillars(float percent)
 	{
 		Pillar1.renderWithRotation(0.0625f);
 		Pillar2.renderWithRotation(0.0625f);

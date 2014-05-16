@@ -18,6 +18,8 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 	private float varLight = 0f;
 	private boolean revertedLight = false;
 	
+	private float deploy = 0f;
+	
 	@Override
 	public void renderTileEntityAt(TileEntity arg0, double arg1, double arg2,
 			double arg3, float arg4) 
@@ -40,11 +42,12 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		GL11.glColor3d(0, varLight, 0);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		MODEL_GENERATOR.renderTubes();
+		GL11.glColor3d(0, 0.9+varLight/10, 0);
 		MODEL_GENERATOR.renderRedstone();
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopMatrix();
 		
-		if(varLight>=0.8f)
+		if(varLight>=0.9f)
 			revertedLight = true;
 		else if(varLight<=0.4f)
 			revertedLight = false;
