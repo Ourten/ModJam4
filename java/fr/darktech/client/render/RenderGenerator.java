@@ -46,7 +46,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		
 		if(varLight>=0.8f)
 			revertedLight = true;
-		else if(varLight<=0.2f)
+		else if(varLight<=0.4f)
 			revertedLight = false;
 		
 		if(revertedLight)
