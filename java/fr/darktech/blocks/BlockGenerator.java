@@ -17,6 +17,12 @@ public class BlockGenerator extends BlockContainer
 	}
 	
 	@Override
+	public int getLightValue(IBlockAccess w, int x, int y, int z)
+	{
+		return 15;
+	}
+	
+	@Override
 	public boolean shouldSideBeRendered(IBlockAccess w, int x, int y, int z, int side)
 	{
 		return false;
