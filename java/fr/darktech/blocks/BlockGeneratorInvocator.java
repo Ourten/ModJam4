@@ -6,21 +6,24 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import fr.darktech.DarkTech;
-import fr.darktech.tiles.TileEntityGenerator;
+import fr.darktech.tiles.TileEntityGeneratorInvocator;
 
-public class BlockGenerator extends BlockContainer
+public class BlockGeneratorInvocator extends BlockContainer
 {
-	public BlockGenerator() 
+	public BlockGeneratorInvocator() 
 	{
 		super(Material.iron);
-		this.setBlockName("BlockGenerator");
+		this.setBlockName("BlockGeneratorInvocator");
 		this.setCreativeTab(DarkTech.tabDarkTech);
 	}
 	
 	@Override
 	public int getLightValue(IBlockAccess w, int x, int y, int z)
 	{
-		return 15;
+		TileEntityGeneratorInvocator tile = (TileEntityGeneratorInvocator) w.getTileEntity(x, y, z);
+		if(tile.canPlaceGenerator())
+			return 15;
+		return 0;
 	}
 	
 	@Override
@@ -44,6 +47,6 @@ public class BlockGenerator extends BlockContainer
 	@Override
 	public TileEntity createNewTileEntity(World arg0, int arg1) 
 	{
-		return new TileEntityGenerator();
+		return new TileEntityGeneratorInvocator();
 	}
 }

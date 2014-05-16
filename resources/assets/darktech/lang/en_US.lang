@@ -1,2 +1,4 @@
 itemGroup.DarkTech=DarkTech
-item.soulIronIngot.name=Soul Iron Ingot
+tile.BlockGenerator.name=Generator
+tile.BlockGeneratorInvocator.name=Generator Invocator
+item.soulIronIngot=Soul Iron Ingot
