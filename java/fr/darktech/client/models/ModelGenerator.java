@@ -159,64 +159,86 @@ public class ModelGenerator extends ModelBase
 		Redstone.addBox( -8F, -8F, -8F, 16, 16, 16);
 		Redstone.setRotationPoint( 0F, 16F, 0F );
 	}
-
-	public void render(float par7)
+	
+	public void renderRedstone()
 	{
-		Base.renderWithRotation(par7);
-		Wall1.renderWithRotation(par7);
+		Redstone.renderWithRotation(0.0625f);
+	}
+	
+	public void renderWalls()
+	{
+		Wall1.renderWithRotation(0.0625f);
 
 		Wall2.rotateAngleY = 1.570796F;
-		Wall2.renderWithRotation(par7);
+		Wall2.renderWithRotation(0.0625f);
 
 		Wall3.rotateAngleY = -3.141593F;
-		Wall3.renderWithRotation(par7);
+		Wall3.renderWithRotation(0.0625f);
 
 		Wall4.rotateAngleY = -1.570796F;
-		Wall4.renderWithRotation(par7);
-
-		Pillar1.renderWithRotation(par7);
-		Pillar2.renderWithRotation(par7);
-		Pillar3.renderWithRotation(par7);
-		Pillar4.renderWithRotation(par7);
-		PillarW1.renderWithRotation(par7);
-		PillarW2.renderWithRotation(par7);
-		PillarW3.renderWithRotation(par7);
-		PillarW4.renderWithRotation(par7);
-		WallD1.renderWithRotation(par7);
-		WallD2.renderWithRotation(par7);
-		WallD3.renderWithRotation(par7);
-		WallD4.renderWithRotation(par7);
+		Wall4.renderWithRotation(0.0625f);
+	}
+	
+	public void renderSecondWalls()
+	{
+		WallD1.renderWithRotation(0.0625f);
+		WallD2.renderWithRotation(0.0625f);
+		WallD3.renderWithRotation(0.0625f);
+		WallD4.renderWithRotation(0.0625f);
 
 		WallD5.rotateAngleY = -1.570796F;
-		WallD5.renderWithRotation(par7);
+		WallD5.renderWithRotation(0.0625f);
 
 		WallD6.rotateAngleY = -1.570796F;
-		WallD6.renderWithRotation(par7);
+		WallD6.renderWithRotation(0.0625f);
 
 		WallD7.rotateAngleY = -1.570796F;
-		WallD7.renderWithRotation(par7);
+		WallD7.renderWithRotation(0.0625f);
 
 		WallD8.rotateAngleY = -1.570796F;
-		WallD8.renderWithRotation(par7);
-
-		FissionTube.renderWithRotation(par7);
-		FissionTube2.renderWithRotation(par7);
+		WallD8.renderWithRotation(0.0625f);
+	}
+	
+	public void renderPillars()
+	{
+		Pillar1.renderWithRotation(0.0625f);
+		Pillar2.renderWithRotation(0.0625f);
+		Pillar3.renderWithRotation(0.0625f);
+		Pillar4.renderWithRotation(0.0625f);
+	}
+	
+	public void renderWallPillars()
+	{
+		PillarW1.renderWithRotation(0.0625f);
+		PillarW2.renderWithRotation(0.0625f);
+		PillarW3.renderWithRotation(0.0625f);
+		PillarW4.renderWithRotation(0.0625f);
+	}
+	
+	public void renderTubes()
+	{
+		FissionTube.renderWithRotation(0.0625f);
+		FissionTube2.renderWithRotation(0.0625f);
 
 		FissionTube3.rotateAngleY = -1.570796F;
-		FissionTube3.renderWithRotation(par7);
+		FissionTube3.renderWithRotation(0.0625f);
 
 		FissionTube4.rotateAngleY = -1.570796F;
-		FissionTube4.renderWithRotation(par7);
+		FissionTube4.renderWithRotation(0.0625f);
 
-		FissionTube6.renderWithRotation(par7);
+		FissionTube6.renderWithRotation(0.0625f);
 
 		FissionTube7.rotateAngleY = -1.570796F;
-		FissionTube7.renderWithRotation(par7);
+		FissionTube7.renderWithRotation(0.0625f);
 
 		FissionTube8.rotateAngleY = -1.570796F;
-		FissionTube8.renderWithRotation(par7);
+		FissionTube8.renderWithRotation(0.0625f);
 
-		FissionTube5.renderWithRotation(par7);
-		Redstone.renderWithRotation(par7);
+		FissionTube5.renderWithRotation(0.0625f);
+	}
+	
+	public void renderBase()
+	{
+		Base.renderWithRotation(0.0625f);
 	}
 }

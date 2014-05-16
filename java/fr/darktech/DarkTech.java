@@ -25,6 +25,7 @@ public class DarkTech {
     public static CommonProxy proxy;
     
     public static final CreativeTabs tabDarkTech = new CreativeTabDarkTech("DarkTech");
+    public static final String modidFolder = "darktech";
 
     public static Item soulIronIngot = new ItemSoulIron(); 
     
