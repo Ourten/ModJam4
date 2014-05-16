@@ -96,7 +96,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else
 		{
 			deploy = 0;
-			state = state+1;
+			state =2;
 		}
 	}
 }

@@ -238,6 +238,46 @@ public class ModelGenerator extends ModelBase
 	
 	public void renderSecondWalls(float percent)
 	{
+		WallD1 = new ModelRenderer( this, 0, 14 );
+		WallD1.setTextureSize( 256, 64 );
+		WallD1.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD1.setRotationPoint( -10F, 16F, -16.5F );
+		
+		WallD2 = new ModelRenderer( this, 0, 14 );
+		WallD2.setTextureSize( 256, 64 );
+		WallD2.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD2.setRotationPoint( 10F, 16F, -16.5F );
+		
+		WallD3 = new ModelRenderer( this, 0, 14 );
+		WallD3.setTextureSize( 256, 64 );
+		WallD3.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD3.setRotationPoint( -10F, 16F, 16.5F );
+		
+		WallD4 = new ModelRenderer( this, 0, 14 );
+		WallD4.setTextureSize( 256, 64 );
+		WallD4.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD4.setRotationPoint( 10F, 16F, 16.5F );
+		
+		WallD5 = new ModelRenderer( this, 0, 14 );
+		WallD5.setTextureSize( 256, 64 );
+		WallD5.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD5.setRotationPoint( 17F, 16F, -10F );
+		
+		WallD6 = new ModelRenderer( this, 0, 14 );
+		WallD6.setTextureSize( 256, 64 );
+		WallD6.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD6.setRotationPoint( 17F, 16F, 10F );
+		
+		WallD7 = new ModelRenderer( this, 0, 14 );
+		WallD7.setTextureSize( 256, 64 );
+		WallD7.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD7.setRotationPoint( -16F, 16F, -9.999994F );
+		
+		WallD8 = new ModelRenderer( this, 0, 14 );
+		WallD8.setTextureSize( 256, 64 );
+		WallD8.addBox( -6F, 9F-(16*percent), -0.5F, 12, (int)(16*percent), 1);
+		WallD8.setRotationPoint( -15.99999F, 16F, 10F );
+		
 		WallD1.renderWithRotation(0.0625f);
 		WallD2.renderWithRotation(0.0625f);
 		WallD3.renderWithRotation(0.0625f);
@@ -304,6 +344,26 @@ public class ModelGenerator extends ModelBase
 	
 	public void renderWallPillars(float percent)
 	{
+		PillarW1 = new ModelRenderer( this, 16, 39 );
+		PillarW1.setTextureSize( 256, 64 );
+		PillarW1.addBox( -2F, 11F-(20*percent), -2F, 4, (int)(20*percent), 4);
+		PillarW1.setRotationPoint( 0F, 13.5F, 18F );
+		
+		PillarW2 = new ModelRenderer( this, 16, 39 );
+		PillarW2.setTextureSize( 256, 64 );
+		PillarW2.addBox( -2F, 11F-(20*percent), -2F, 4, (int)(20*percent), 4);
+		PillarW2.setRotationPoint( 18F, 13.5F, 0F );
+		
+		PillarW3 = new ModelRenderer( this, 16, 39 );
+		PillarW3.setTextureSize( 256, 64 );
+		PillarW3.addBox( -2F, 11F-(20*percent), -2F, 4, (int)(20*percent), 4);
+		PillarW3.setRotationPoint( -17F, 13.5F, 0F );
+		
+		PillarW4 = new ModelRenderer( this, 16, 39 );
+		PillarW4.setTextureSize( 256, 64 );
+		PillarW4.addBox( -2F, 11F-(20*percent), -2F, 4, (int)(20*percent), 4);
+		PillarW4.setRotationPoint( 1F, 13.5F, -18F );
+		
 		PillarW1.renderWithRotation(0.0625f);
 		PillarW2.renderWithRotation(0.0625f);
 		PillarW3.renderWithRotation(0.0625f);
