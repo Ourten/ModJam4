@@ -46,12 +46,23 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		//MODEL_GENERATOR.renderSecondWalls();
 		//MODEL_GENERATOR.renderWallPillars();
 		
-		GL11.glColor3d(0, varLight, 0);
-		GL11.glDisable(GL11.GL_LIGHTING);
-		MODEL_GENERATOR.renderTubes();
-		GL11.glColor3d(0, 0.9+varLight/10, 0);
-		MODEL_GENERATOR.renderRedstone();
-		GL11.glEnable(GL11.GL_LIGHTING);
+		if(state >3)
+		{
+			GL11.glColor3d(0, varLight, 0);
+			GL11.glDisable(GL11.GL_LIGHTING);
+		}
+		
+		if(state > 2)
+			MODEL_GENERATOR.renderTubes();
+		
+		if(state >3)
+			GL11.glColor3d(0, 0.9+varLight/10, 0);
+		
+		if(state >3)
+			MODEL_GENERATOR.renderRedstone();
+		
+		if(state >3)
+			GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glColor3d(1, 1, 1);
 		
@@ -76,7 +87,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else
 		{
 			deploy = 0;
-			state = 1;
+			state = state+1;
 		}
 	}
 }

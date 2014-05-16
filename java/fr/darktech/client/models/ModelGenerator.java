@@ -185,25 +185,25 @@ public class ModelGenerator extends ModelBase
 	{
 		Wall1 = new ModelRenderer( this, 120, 10 );
 		Wall1.setTextureSize( 256, 64 );
-		Wall1.addBox( -16F, 11.5F+(23/percent), -16F, 2, (int) 23, 30);
+		Wall1.addBox( -16F, 12.5F-(23*percent), -16F, 2, (int) (23*percent), 30);
 		Wall1.setRotationPoint( 0F, 12F, 0F );
 		
 		
 		Wall2 = new ModelRenderer( this, 120, 10 );
 		Wall2.setTextureSize( 256, 64 );
-		Wall2.addBox( -16F, -11.5F, -16F, 2, (int) (23*percent), 30);
+		Wall2.addBox( -16F, 12.5F-(23*percent), -16F, 2, (int) (23*percent), 30);
 		Wall2.setRotationPoint( 0F, 12F, 0F );
 		
 		
 		Wall3 = new ModelRenderer( this, 120, 10 );
 		Wall3.setTextureSize( 256, 64 );
-		Wall3.addBox( -16F, -11.5F, -16F, 2, (int) (23*percent), 30);
+		Wall3.addBox( -16F, 12.5F-(23*percent), -16F, 2, (int) (23*percent), 30);
 		Wall3.setRotationPoint( 0F, 12F, 0F );
 		
 		
 		Wall4 = new ModelRenderer( this, 120, 10 );
 		Wall4.setTextureSize( 256, 64 );
-		Wall4.addBox( -16F, -11.5F, -16F, 2, (int) (23*percent), 30);
+		Wall4.addBox( -16F, 12.5F-(23*percent), -16F, 2, (int) (23*percent), 30);
 		Wall4.setRotationPoint( 0F, 12F, 0F );
 		
 		Wall1.renderWithRotation(0.0625f);
