@@ -43,8 +43,17 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		}
 		else if(state > 1)
 			MODEL_GENERATOR.renderWalls();
-		//MODEL_GENERATOR.renderSecondWalls();
-		//MODEL_GENERATOR.renderWallPillars();
+		
+		if(state == 2)
+		{
+			MODEL_GENERATOR.renderSecondWalls(deploy);
+			MODEL_GENERATOR.renderWallPillars(deploy);
+		}
+		else if(state > 2)
+		{
+			MODEL_GENERATOR.renderSecondWalls();
+			MODEL_GENERATOR.renderWallPillars();
+		}
 		
 		if(state >3)
 		{

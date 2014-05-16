@@ -1,7 +1,5 @@
 package fr.darktech.client.models;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 
@@ -238,6 +236,26 @@ public class ModelGenerator extends ModelBase
 		WallD8.renderWithRotation(0.0625f);
 	}
 	
+	public void renderSecondWalls(float percent)
+	{
+		WallD1.renderWithRotation(0.0625f);
+		WallD2.renderWithRotation(0.0625f);
+		WallD3.renderWithRotation(0.0625f);
+		WallD4.renderWithRotation(0.0625f);
+
+		WallD5.rotateAngleY = -1.570796F;
+		WallD5.renderWithRotation(0.0625f);
+
+		WallD6.rotateAngleY = -1.570796F;
+		WallD6.renderWithRotation(0.0625f);
+
+		WallD7.rotateAngleY = -1.570796F;
+		WallD7.renderWithRotation(0.0625f);
+
+		WallD8.rotateAngleY = -1.570796F;
+		WallD8.renderWithRotation(0.0625f);
+	}
+	
 	public void renderPillars()
 	{
 		Pillar1.renderWithRotation(0.0625f);
@@ -284,7 +302,37 @@ public class ModelGenerator extends ModelBase
 		PillarW4.renderWithRotation(0.0625f);
 	}
 	
+	public void renderWallPillars(float percent)
+	{
+		PillarW1.renderWithRotation(0.0625f);
+		PillarW2.renderWithRotation(0.0625f);
+		PillarW3.renderWithRotation(0.0625f);
+		PillarW4.renderWithRotation(0.0625f);
+	}
+	
 	public void renderTubes()
+	{
+		FissionTube.renderWithRotation(0.0625f);
+		FissionTube2.renderWithRotation(0.0625f);
+
+		FissionTube3.rotateAngleY = -1.570796F;
+		FissionTube3.renderWithRotation(0.0625f);
+
+		FissionTube4.rotateAngleY = -1.570796F;
+		FissionTube4.renderWithRotation(0.0625f);
+
+		FissionTube6.renderWithRotation(0.0625f);
+
+		FissionTube7.rotateAngleY = -1.570796F;
+		FissionTube7.renderWithRotation(0.0625f);
+
+		FissionTube8.rotateAngleY = -1.570796F;
+		FissionTube8.renderWithRotation(0.0625f);
+
+		FissionTube5.renderWithRotation(0.0625f);
+	}
+	
+	public void renderTubes(float percent)
 	{
 		FissionTube.renderWithRotation(0.0625f);
 		FissionTube2.renderWithRotation(0.0625f);
