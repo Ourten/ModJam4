@@ -1,5 +1,6 @@
 package fr.darktech;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
@@ -9,8 +10,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import fr.darktech.blocks.BlockGenerator;
 import fr.darktech.common.CommonProxy;
 import fr.darktech.items.ItemSoulIron;
+import fr.darktech.tiles.TileEntityGenerator;
 
 @Mod(modid = "DarkTech", version = "0.1")
 public class DarkTech {
@@ -25,10 +28,13 @@ public class DarkTech {
 
     public static Item soulIronIngot = new ItemSoulIron(); 
     
+    public static Block generatorBlock = new BlockGenerator();
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	GameRegistry.registerItem(soulIronIngot, "soulIronIngot");
-    	
+    	GameRegistry.registerBlock(generatorBlock, "generatorBlock");
+    	GameRegistry.registerTileEntity(TileEntityGenerator.class, "TileEntityGenerator");
     	proxy.registerRender();
     }
 

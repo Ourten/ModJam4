@@ -24,8 +24,9 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 	public void renderGenerator(TileEntityGenerator generator, double x, double y, double z)
 	{
 		GL11.glPushMatrix();
-		
-		
+		GL11.glTranslated(x, y, z);
+		this.bindTexture(TEX_GENERATOR);
+		MODEL_GENERATOR.render(0.0625f);
 		GL11.glPopMatrix();
 	}
 }
