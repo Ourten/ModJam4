@@ -11,9 +11,11 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.darktech.blocks.BlockGenerator;
+import fr.darktech.blocks.BlockGeneratorInvocator;
 import fr.darktech.common.CommonProxy;
 import fr.darktech.items.ItemSoulIron;
 import fr.darktech.tiles.TileEntityGenerator;
+import fr.darktech.tiles.TileEntityGeneratorInvocator;
 
 @Mod(modid = "DarkTech", version = "0.1")
 public class DarkTech {
@@ -30,12 +32,15 @@ public class DarkTech {
     public static Item soulIronIngot = new ItemSoulIron(); 
     
     public static Block generatorBlock = new BlockGenerator();
+    public static Block generatorInvocatorBlock = new BlockGeneratorInvocator();
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	GameRegistry.registerItem(soulIronIngot, "soulIronIngot");
     	GameRegistry.registerBlock(generatorBlock, "generatorBlock");
+    	GameRegistry.registerBlock(generatorInvocatorBlock, "generatorInvocatorBlock");
     	GameRegistry.registerTileEntity(TileEntityGenerator.class, "TileEntityGenerator");
+    	GameRegistry.registerTileEntity(TileEntityGeneratorInvocator.class, "TileEntityGeneratorInvocator");
     	proxy.registerRender();
     }
 
