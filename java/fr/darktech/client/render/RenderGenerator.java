@@ -35,7 +35,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		GL11.glRotated(180, 0, 0, 1);
 		this.bindTexture(TEX_GENERATOR);
 		
-		//MODEL_GENERATOR.renderBase();
+		MODEL_GENERATOR.renderBase();
 		
 		if(state == 1)
 		{
@@ -76,7 +76,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else
 		{
 			deploy = 0;
-			state = state;
+			state = 1;
 		}
 	}
 }
