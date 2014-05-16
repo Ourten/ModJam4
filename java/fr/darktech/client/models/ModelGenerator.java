@@ -213,8 +213,24 @@ public class ModelGenerator extends ModelBase
 	{
         Pillar1 = new ModelRenderer( this, 0, 31 );
         Pillar1.setTextureSize( 256, 64 );
-        Pillar1.addBox( -2F, -28F, -2F, 4, 28, 4);
+        Pillar1.addBox( -2F, -28F*percent, -2F, 4, (int) (28*percent), 4);
         Pillar1.setRotationPoint( 18F, 24F, 18F );
+        
+        
+        Pillar2 = new ModelRenderer( this, 0, 31 );
+        Pillar2.setTextureSize( 256, 64 );
+        Pillar2.addBox( -2F, (float) (-28F*(percent/1.02)), -2F, 4, (int)(28*percent), 4);
+        Pillar2.setRotationPoint( 18F, 24F, -18F );
+        
+        
+        Pillar3 = new ModelRenderer( this, 0, 31 );
+        Pillar3.setTextureSize( 256, 64 );
+        Pillar3.addBox( -2F, (float) (-28F*(percent/1.02)), -2F, 4, (int)(28*percent), 4);
+        Pillar3.setRotationPoint( -18F, 24F, -18F );
+        Pillar4 = new ModelRenderer( this, 0, 31 );
+        Pillar4.setTextureSize( 256, 64 );
+        Pillar4.addBox( -2F, (float) (-28F*(percent/1.02)), -2F, 4, (int)(28*percent), 4);
+        Pillar4.setRotationPoint( -18F, 24F, 18F );
 		Pillar1.renderWithRotation(0.0625f);
 		Pillar2.renderWithRotation(0.0625f);
 		Pillar3.renderWithRotation(0.0625f);
