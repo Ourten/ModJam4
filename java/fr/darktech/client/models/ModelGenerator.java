@@ -1,5 +1,7 @@
 package fr.darktech.client.models;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 
@@ -58,22 +60,22 @@ public class ModelGenerator extends ModelBase
 		Wall4.setTextureSize( 256, 64 );
 		Wall4.addBox( -16F, -11.5F, -16F, 2, 23, 30);
 		Wall4.setRotationPoint( 0F, 12F, 0F );
-		Pillar1 = new ModelRenderer( this, 0, 31 );
-		Pillar1.setTextureSize( 256, 64 );
-		Pillar1.addBox( -2F, -14F, -2F, 4, 28, 4);
-		Pillar1.setRotationPoint( 18F, 9.5F, 18F );
-		Pillar2 = new ModelRenderer( this, 0, 31 );
-		Pillar2.setTextureSize( 256, 64 );
-		Pillar2.addBox( -2F, -14F, -2F, 4, 28, 4);
-		Pillar2.setRotationPoint( 18F, 9.5F, -18F );
-		Pillar3 = new ModelRenderer( this, 0, 31 );
-		Pillar3.setTextureSize( 256, 64 );
-		Pillar3.addBox( -2F, -14F, -2F, 4, 28, 4);
-		Pillar3.setRotationPoint( -18F, 9.5F, -18F );
-		Pillar4 = new ModelRenderer( this, 0, 31 );
-		Pillar4.setTextureSize( 256, 64 );
-		Pillar4.addBox( -2F, -14F, -2F, 4, 28, 4);
-		Pillar4.setRotationPoint( -18F, 9.5F, 18F );
+        Pillar1 = new ModelRenderer( this, 0, 31 );
+        Pillar1.setTextureSize( 256, 64 );
+        Pillar1.addBox( -2F, -28F, -2F, 4, 28, 4);
+        Pillar1.setRotationPoint( 18F, 24F, 18F );
+        Pillar2 = new ModelRenderer( this, 0, 31 );
+        Pillar2.setTextureSize( 256, 64 );
+        Pillar2.addBox( -2F, -14F, -2F, 4, 28, 4);
+        Pillar2.setRotationPoint( 18F, 10F, -18F );
+        Pillar3 = new ModelRenderer( this, 0, 31 );
+        Pillar3.setTextureSize( 256, 64 );
+        Pillar3.addBox( -2F, -14F, -2F, 4, 28, 4);
+        Pillar3.setRotationPoint( -18F, 10F, -18F );
+        Pillar4 = new ModelRenderer( this, 0, 31 );
+        Pillar4.setTextureSize( 256, 64 );
+        Pillar4.addBox( -2F, -14F, -2F, 4, 28, 4);
+        Pillar4.setRotationPoint( -18F, 10F, 18F );
 		PillarW1 = new ModelRenderer( this, 16, 39 );
 		PillarW1.setTextureSize( 256, 64 );
 		PillarW1.addBox( -2F, -10F, -2F, 4, 20, 4);
@@ -199,8 +201,20 @@ public class ModelGenerator extends ModelBase
 		WallD8.renderWithRotation(0.0625f);
 	}
 	
+	public void renderPillars()
+	{
+		Pillar1.renderWithRotation(0.0625f);
+		Pillar2.renderWithRotation(0.0625f);
+		Pillar3.renderWithRotation(0.0625f);
+		Pillar4.renderWithRotation(0.0625f);
+	}
+	
 	public void renderPillars(float percent)
 	{
+        Pillar1 = new ModelRenderer( this, 0, 31 );
+        Pillar1.setTextureSize( 256, 64 );
+        Pillar1.addBox( -2F, -28F, -2F, 4, 28, 4);
+        Pillar1.setRotationPoint( 18F, 24F, 18F );
 		Pillar1.renderWithRotation(0.0625f);
 		Pillar2.renderWithRotation(0.0625f);
 		Pillar3.renderWithRotation(0.0625f);
