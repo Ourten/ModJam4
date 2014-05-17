@@ -1,13 +1,18 @@
 package fr.darktech.energy;
 
+import fr.darktech.exception.NetworkException;
+import fr.darktech.network.INetCompatible;
+import fr.darktech.network.Channel;
+import fr.darktech.network.NetworkManager;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public abstract class BaseTileGenerator extends TileEntity implements
-	IEnergySource {
+	IEnergySource, INetCompatible {
 
+    public static NetworkManager netManager = NetworkManager.getNetworkManager();
     @Override
     public boolean sendEnergyTo(TileEntity receiver) {
-	// TODO Auto-generated method stub
 	return false;
     }
 
@@ -16,5 +21,12 @@ public abstract class BaseTileGenerator extends TileEntity implements
 	// TODO Auto-generated method stub
 	return 100;
     }
+    @Override
+    public boolean reset() {
+	// TODO Auto-generated method stub
+	return false;
+    }
+
+
 
 }
