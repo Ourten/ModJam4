@@ -3,7 +3,13 @@ package fr.darktech;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucket;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -17,6 +23,7 @@ import fr.darktech.blocks.BlockGenerator;
 import fr.darktech.blocks.BlockGeneratorInvocator;
 import fr.darktech.blocks.BlockObelisk;
 import fr.darktech.common.CommonProxy;
+import fr.darktech.fluids.RedstoneFluid;
 import fr.darktech.items.ItemSoulIron;
 import fr.darktech.network.NetworkManager;
 import fr.darktech.tiles.TileEntityGenerator;
@@ -45,9 +52,26 @@ public class DarkTech {
 
     private NetworkManager network;
     
+	public static Block redstoneFluidBlock;
+	public static Item redstoneBucket;
+	public static Fluid redstoneFluid;
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-	network = new NetworkManager();
+		network = new NetworkManager();
+			
+		redstoneFluid = new Fluid("redFluid").setLuminosity(14).setViscosity(400).setTemperature(1000);
+		FluidRegistry.registerFluid(redstoneFluid);
+		
+		redstoneFluidBlock = new RedstoneFluid(redstoneFluid).setCreativeTab(tabDarkTech).setBlockName("RedstoneFluid").setBlockTextureName("redstone_block");
+		redstoneFluid.setBlock(redstoneFluidBlock);
+		
+		redstoneBucket = new ItemBucket(redstoneFluid.getBlock()).setUnlocalizedName("RedstoneBucket").setTextureName("bucket_water").setContainerItem(Items.bucket).setCreativeTab(tabDarkTech);
+		FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("redFluid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(redstoneBucket), new ItemStack(Items.bucket));
+		
+		GameRegistry.registerBlock(redstoneFluidBlock, "redstoneFluidBlock");
+		GameRegistry.registerItem(redstoneBucket, "redstoneBucket");
+	
     	GameRegistry.registerItem(soulIronIngot, "soulIronIngot");
     	GameRegistry.registerBlock(generatorBlock, "generatorBlock");
     	GameRegistry.registerBlock(generatorInvocatorBlock, "generatorInvocatorBlock");
