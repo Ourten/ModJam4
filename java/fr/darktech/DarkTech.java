@@ -12,10 +12,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fr.darktech.blocks.BlockGenerator;
 import fr.darktech.blocks.BlockGeneratorInvocator;
+import fr.darktech.blocks.BlockObelisk;
 import fr.darktech.common.CommonProxy;
 import fr.darktech.items.ItemSoulIron;
 import fr.darktech.tiles.TileEntityGenerator;
 import fr.darktech.tiles.TileEntityGeneratorInvocator;
+import fr.darktech.tiles.TileEntityObelisk;
 
 @Mod(modid = "DarkTech", version = "0.1")
 public class DarkTech {
@@ -32,6 +34,7 @@ public class DarkTech {
     public static Item soulIronIngot = new ItemSoulIron(); 
     
     public static Block generatorBlock = new BlockGenerator();
+    public static Block obeliskBlock = new BlockObelisk();
     public static Block generatorInvocatorBlock = new BlockGeneratorInvocator();
     
     @EventHandler
@@ -39,8 +42,10 @@ public class DarkTech {
     	GameRegistry.registerItem(soulIronIngot, "soulIronIngot");
     	GameRegistry.registerBlock(generatorBlock, "generatorBlock");
     	GameRegistry.registerBlock(generatorInvocatorBlock, "generatorInvocatorBlock");
+    	GameRegistry.registerBlock(obeliskBlock, "obeliskBlock");
     	GameRegistry.registerTileEntity(TileEntityGenerator.class, "TileEntityGenerator");
     	GameRegistry.registerTileEntity(TileEntityGeneratorInvocator.class, "TileEntityGeneratorInvocator");
+    	GameRegistry.registerTileEntity(TileEntityObelisk.class, "TileEntityObelisk");
     	proxy.registerRender();
     }
 

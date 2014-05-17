@@ -5,10 +5,20 @@ import java.util.ArrayList;
 public class AnimStates 
 {
 	public static final ArrayList<AnimState> generatorStates = new ArrayList<AnimState>();
+	public static final ArrayList<AnimState> obeliskStates = new ArrayList<AnimState>();
 	
 	public static final void setupAnimationStates()
 	{
 		setupGenerator();
+		setupObelisk();
+	}
+	
+	public static final void tickObeliskStates()
+	{
+		for(AnimState state : obeliskStates)
+		{
+			state.tick(state.getSpeed());
+		}
 	}
 	
 	public static final void tickGeneratorStates()
@@ -17,6 +27,11 @@ public class AnimStates
 		{
 			state.tick(state.getSpeed());
 		}
+	}
+	
+	public static final void setupObelisk()
+	{
+		
 	}
 	
 	public static final void setupGenerator()

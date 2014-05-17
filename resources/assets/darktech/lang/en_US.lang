@@ -1,4 +1,5 @@
 itemGroup.DarkTech=DarkTech
-tile.BlockGenerator.name=Generator
-tile.BlockGeneratorInvocator.name=Generator Invocator
+tile.BlockGenerator.name=Dark Energy Generator
+tile.BlockGeneratorInvocator.name=Dark Energy Generator Invocator
+tile.BlockObelisk.name=Dark Obelisk
 item.soulIronIngot=Soul Iron Ingot

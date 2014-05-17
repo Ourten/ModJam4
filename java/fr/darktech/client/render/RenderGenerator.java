@@ -108,8 +108,6 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 			else
 				varLight = varLight+0.003f;
 		}
-		
-		
 		AnimStates.tickGeneratorStates();
 	}
 }
