@@ -1,18 +1,17 @@
 package fr.darktech.tiles;
 
-import fr.darktech.energy.BaseTileGenerator;
-import fr.darktech.exception.NetworkException;
-import fr.darktech.network.Channel;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-
-import net.minecraft.world.World;
 import net.minecraft.util.AxisAlignedBB;
+import fr.darktech.energy.BaseTileGenerator;
+import fr.darktech.network.Channel;
 
 public class TileEntityGenerator extends BaseTileGenerator 
 {
     private long lastTick;
     private Channel network;
+    
+    private boolean startDeploy = true;
 	public TileEntityGenerator()
 	{
 		super();
@@ -20,6 +19,14 @@ public class TileEntityGenerator extends BaseTileGenerator
 
 	}
 	
+	public boolean isStartDeploy() {
+		return startDeploy;
+	}
+
+	public void setStartDeploy(boolean startDeploy) {
+		this.startDeploy = startDeploy;
+	}
+
 	@Override
 	public AxisAlignedBB getRenderBoundingBox()
 	{
@@ -29,12 +36,14 @@ public class TileEntityGenerator extends BaseTileGenerator
 	public void writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
+		tag.setBoolean("deploy", this.startDeploy);
 	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
+		this.startDeploy = tag.getBoolean("deploy");
 	}
 
 	@Override
