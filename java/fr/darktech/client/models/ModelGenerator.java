@@ -406,15 +406,6 @@ public class ModelGenerator extends ModelBase
 		System.out.println(percent);
 		if(percent != 0)
 		{
-			FissionTube.renderWithRotation(0.0625f);
-			FissionTube2.renderWithRotation(0.0625f);
-
-			FissionTube3.rotateAngleY = -1.570796F;
-			FissionTube3.renderWithRotation(0.0625f);
-
-			FissionTube4.rotateAngleY = -1.570796F;
-			FissionTube4.renderWithRotation(0.0625f);
-
 			FissionTube6.renderWithRotation(0.0625f);
 
 			FissionTube7.rotateAngleY = -1.570796F;
@@ -422,10 +413,17 @@ public class ModelGenerator extends ModelBase
 
 			FissionTube8.rotateAngleY = -1.570796F;
 			FissionTube8.renderWithRotation(0.0625f);
+			FissionTube5.renderWithRotation(0.0625f);
 
 			if(percent >= 0.45)
 			{
-				FissionTube5.renderWithRotation(0.0625f);
+				FissionTube.renderWithRotation(0.0625f);
+				FissionTube2.renderWithRotation(0.0625f);
+				FissionTube3.rotateAngleY = -1.570796F;
+				FissionTube3.renderWithRotation(0.0625f);
+
+				FissionTube4.rotateAngleY = -1.570796F;
+				FissionTube4.renderWithRotation(0.0625f);
 			}
 		}
 	}

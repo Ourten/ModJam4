@@ -49,11 +49,11 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else
 			MODEL_GENERATOR.renderSecondWalls();
 		
-		/*if(state >3)
+		if(AnimStates.generatorStates.get(5).isFinished())
 		{
 			GL11.glColor3d(0, varLight, 0);
 			GL11.glDisable(GL11.GL_LIGHTING);
-		}*/
+		}
 		
 		if(!AnimStates.generatorStates.get(5).isFinished())
 		{
@@ -70,16 +70,16 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else
 			MODEL_GENERATOR.renderTubes();
 		
-		/*if(state >3)
-			GL11.glColor3d(0, 0.9+varLight/10, 0);*/
+		if(AnimStates.generatorStates.get(5).isFinished())
+			GL11.glColor3d(0, 0.9+varLight/10, 0);
 		
 		if(!AnimStates.generatorStates.get(4).isFinished())
 			MODEL_GENERATOR.renderRedstone(AnimStates.generatorStates.get(4).getPercent());
 		else
 			MODEL_GENERATOR.renderRedstone();
 		
-		/*if(state >3)
-			GL11.glEnable(GL11.GL_LIGHTING);*/
+		if(AnimStates.generatorStates.get(5).isFinished())
+			GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glColor3d(1, 1, 1);
 		
