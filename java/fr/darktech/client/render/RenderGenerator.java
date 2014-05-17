@@ -37,11 +37,13 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		
 		MODEL_GENERATOR.renderBase();
 		
-		if(state == 1)
+		System.out.println("#0 : "+AnimStates.generatorStates.get(0).getPercent());
+		System.out.println("#1 : "+AnimStates.generatorStates.get(1).getPercent());
+		if(!AnimStates.generatorStates.get(1).isFinished())
 		{
-			MODEL_GENERATOR.renderWalls(deploy);
+			MODEL_GENERATOR.renderWalls(AnimStates.generatorStates.get(1).getPercent());
 		}
-		else if(state > 1)
+		else
 			MODEL_GENERATOR.renderWalls();
 		
 		if(state == 2)
@@ -91,12 +93,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else
 			varLight = varLight+0.003f;
 		
-		if(deploy<0.999)
-			deploy = deploy+0.003f;
-		else
-		{
-			deploy = 0;
-			state =state+1;
-		}
+		
+		AnimStates.tickGeneratorStates();
 	}
 }

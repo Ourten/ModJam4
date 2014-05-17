@@ -21,11 +21,11 @@ public class AnimStates
 	
 	public static final void setupGenerator()
 	{
-		AnimState pillars = new AnimState();
+		AnimState pillars = new AnimState("pillars");
 		generatorStates.add(pillars);
 		
-		AnimState walls = new AnimState();
-		walls.addDepend(pillars, 25);
+		AnimState walls = new AnimState("walls");
+		walls.addDepend(pillars, 0.25f);
 		
 		generatorStates.add(walls);
 	}
