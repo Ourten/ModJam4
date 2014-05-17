@@ -50,19 +50,19 @@ public class AnimStates
 		secondWalls.addDepend(walls, 1);
 		obeliskStates.add(secondWalls);
 		
-		AnimState logo = new AnimState("logo");
-		logo.setSpeed(0.003f);
-		logo.addDepend(pillars, 1);
-		obeliskStates.add(logo);
-		
 		AnimState wallsCorners = new AnimState("wcorners");
-		wallsCorners.setSpeed(0.001f);
+		wallsCorners.setSpeed(0.002f);
 		wallsCorners.addDepend(secondWalls, 0.5f);
 		obeliskStates.add(wallsCorners);
 		
+		AnimState logo = new AnimState("logo");
+		logo.setSpeed(0.005f);
+		logo.addDepend(pillars, 0.9f);
+		obeliskStates.add(logo);
+		
 		AnimState light = new AnimState("light");
 		light.setSpeed(0.002f);
-		light.addDepend(wallsCorners, 1);
+		light.addDepend(wallsCorners, 0.9f);
 		obeliskStates.add(light);
 	}
 	
