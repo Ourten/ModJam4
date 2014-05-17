@@ -212,7 +212,35 @@ public class ModelObelisk extends ModelBase
 
 		Wall4.rotateAngleY = -1.570796F;
 		Wall4.renderWithRotation(0.0625f);
-
+	}
+	
+	public void renderWalls(float percent)
+	{
+		Wall1 = new ModelRenderer( this, 0, 62 );
+		Wall1.setTextureSize( 128, 128 );
+		Wall1.addBox( -0.5F, 8.5F-(15*percent), -10F, 1, (int)(15*percent), 20);
+		Wall1.setRotationPoint( -10.5F, 16F, 0F );
+		
+		Wall2 = new ModelRenderer( this, 0, 62 );
+		Wall2.setTextureSize( 128, 128 );
+		Wall2.addBox( -0.5F, 8.5F-(15*percent), -10F, 1, (int)(15*percent), 20);
+		Wall2.setRotationPoint( 10.5F, 16F, 0F );
+		
+		Wall3 = new ModelRenderer( this, 0, 62 );
+		Wall3.setTextureSize( 128, 128 );
+		Wall3.addBox( -0.5F, 8.5F-(15*percent), -10F, 1, (int)(15*percent), 20);
+		Wall3.setRotationPoint( 0F, 16F, -10.5F );
+		
+		Wall4 = new ModelRenderer( this, 0, 62 );
+		Wall4.setTextureSize( 128, 128 );
+		Wall4.addBox( -0.5F, 8.5F-(15*percent), -10F, 1, (int)(15*percent), 20);
+		Wall4.setRotationPoint( 9.536743E-07F, 16F, 10.5F );
+		
+		renderWalls();
+	}
+	
+	public void renderSecondWalls()
+	{
 		Wall5.renderWithRotation(0.0625f);
 		Wall6.renderWithRotation(0.0625f);
 
@@ -223,49 +251,29 @@ public class ModelObelisk extends ModelBase
 		Wall8.renderWithRotation(0.0625f);
 	}
 	
-	public void renderWalls(float percent)
+	public void renderSecondWalls(float percent)
 	{
-		Wall1 = new ModelRenderer( this, 0, 62 );
-		Wall1.setTextureSize( 128, 128 );
-		Wall1.addBox( -0.5F, 7.5F-(15*percent), -10F, 1, 15, 20);
-		Wall1.setRotationPoint( -10.5F, 16F, 0F );
-		
-		Wall2 = new ModelRenderer( this, 0, 62 );
-		Wall2.setTextureSize( 128, 128 );
-		Wall2.addBox( -0.5F, 7.5F-(15*percent), -10F, 1, 15, 20);
-		Wall2.setRotationPoint( 10.5F, 16F, 0F );
-		
-		Wall3 = new ModelRenderer( this, 0, 62 );
-		Wall3.setTextureSize( 128, 128 );
-		Wall3.addBox( -0.5F, -7.5F, -10F, 1, 15, 20);
-		Wall3.setRotationPoint( 0F, 16F, -10.5F );
-		
-		Wall4 = new ModelRenderer( this, 0, 62 );
-		Wall4.setTextureSize( 128, 128 );
-		Wall4.addBox( -0.5F, -7.5F, -10F, 1, 15, 20);
-		Wall4.setRotationPoint( 9.536743E-07F, 16F, 10.5F );
-		
 		Wall5 = new ModelRenderer( this, 0, 34 );
 		Wall5.setTextureSize( 128, 128 );
-		Wall5.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall5.addBox( -1F, 5F-(8*percent), -10F, 2, (int)(8*percent), 20);
 		Wall5.setRotationPoint( -12F, 19.5F, 0F );
 		
 		Wall6 = new ModelRenderer( this, 0, 34 );
 		Wall6.setTextureSize( 128, 128 );
-		Wall6.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall6.addBox( -1F, 5F-(8*percent), -10F, 2, (int)(8*percent), 20);
 		Wall6.setRotationPoint( 12F, 19.5F, 0F );
 		
 		Wall7 = new ModelRenderer( this, 0, 34 );
 		Wall7.setTextureSize( 128, 128 );
-		Wall7.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall7.addBox( -1F, 5F-(8*percent), -10F, 2, (int)(8*percent), 20);
 		Wall7.setRotationPoint( 0F, 19.5F, -12F );
 		
 		Wall8 = new ModelRenderer( this, 0, 34 );
 		Wall8.setTextureSize( 128, 128 );
-		Wall8.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall8.addBox( -1F, 5F-(8*percent), -10F, 2, (int)(8*percent), 20);
 		Wall8.setRotationPoint( 0F, 19.5F, 12F );
 		
-		renderWalls();
+		renderSecondWalls();
 	}
 	
 	public void renderPillarsWalls()
@@ -295,6 +303,71 @@ public class ModelObelisk extends ModelBase
 		PillarWall10.renderWithRotation(0.0625f);
 		PillarWall11.renderWithRotation(0.0625f);
 		PillarWall12.renderWithRotation(0.0625f);
+	}
+	
+	public void renderPillarsWalls(float percent)
+	{
+		PillarWall1 = new ModelRenderer( this, 0, 73 );
+		PillarWall1.setTextureSize( 128, 128 );
+		PillarWall1.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall1.setRotationPoint( -13.5F, 20F, 0F );
+		
+		PillarWall2 = new ModelRenderer( this, 0, 73 );
+		PillarWall2.setTextureSize( 128, 128 );
+		PillarWall2.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall2.setRotationPoint( -13.5F, 20F, -4F );
+		
+		PillarWall3 = new ModelRenderer( this, 0, 73 );
+		PillarWall3.setTextureSize( 128, 128 );
+		PillarWall3.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall3.setRotationPoint( -13.5F, 20F, 4F );
+		
+		PillarWall4 = new ModelRenderer( this, 0, 73 );
+		PillarWall4.setTextureSize( 128, 128 );
+		PillarWall4.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall4.setRotationPoint( 0F, 20F, 13.5F );
+		
+		PillarWall5 = new ModelRenderer( this, 0, 73 );
+		PillarWall5.setTextureSize( 128, 128 );
+		PillarWall5.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall5.setRotationPoint( 4F, 20F, 13.5F );
+		
+		PillarWall6 = new ModelRenderer( this, 0, 73 );
+		PillarWall6.setTextureSize( 128, 128 );
+		PillarWall6.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall6.setRotationPoint( -4F, 20F, 13.5F );
+		
+		PillarWall7 = new ModelRenderer( this, 0, 73 );
+		PillarWall7.setTextureSize( 128, 128 );
+		PillarWall7.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall7.setRotationPoint( 0F, 20F, -13.5F );
+		
+		PillarWall8 = new ModelRenderer( this, 0, 73 );
+		PillarWall8.setTextureSize( 128, 128 );
+		PillarWall8.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall8.setRotationPoint( 4F, 20F, -13.5F );
+		
+		PillarWall9 = new ModelRenderer( this, 0, 73 );
+		PillarWall9.setTextureSize( 128, 128 );
+		PillarWall9.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall9.setRotationPoint( -4F, 20F, -13.5F );
+		
+		PillarWall10 = new ModelRenderer( this, 0, 73 );
+		PillarWall10.setTextureSize( 128, 128 );
+		PillarWall10.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall10.setRotationPoint( 13.5F, 20F, 0F );
+		
+		PillarWall11 = new ModelRenderer( this, 0, 73 );
+		PillarWall11.setTextureSize( 128, 128 );
+		PillarWall11.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall11.setRotationPoint( 13.5F, 20F, -4F );
+		
+		PillarWall12 = new ModelRenderer( this, 0, 73 );
+		PillarWall12.setTextureSize( 128, 128 );
+		PillarWall12.addBox( -1F, 3.5F-(7*percent), -1F, 2, (int)(7*percent), 2);
+		PillarWall12.setRotationPoint( 13.5F, 20F, 4F );
+		
+		renderPillarsWalls();
 	}
 	
 	public void renderPillarsCorners()
@@ -346,5 +419,23 @@ public class ModelObelisk extends ModelBase
 
 		Logo2.rotateAngleY = 1.685874E-07F;
 		Logo2.renderWithRotation(0.0625f);
+	}
+	
+	public void renderLogo(float percent)
+	{
+		Logo = new ModelRenderer( this, 0, 20 );
+		Logo.setTextureSize( 128, 128 );
+		Logo.addBox( -6F, -7.5F, -11.25F, 12, 14, 0);
+		Logo.setRotationPoint( 0F, 4F, 0F );
+		Logo1 = new ModelRenderer( this, 0, 20 );
+		Logo1.setTextureSize( 128, 128 );
+		Logo1.addBox( -6F, -7.5F, -11.25F, 12, 14, 0);
+		Logo1.setRotationPoint( 0F, 4F, 0F );
+		Logo2 = new ModelRenderer( this, 0, 20 );
+		Logo2.setTextureSize( 128, 128 );
+		Logo2.addBox( -6F, -7.5F, 0F, 12, 14, 0);
+		Logo2.setRotationPoint( 0F, 4F, 0F );
+		
+		renderLogo();
 	}
 }

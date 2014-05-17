@@ -38,22 +38,23 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 		{
 			this.MODEL_OBELISK.renderPillars();
 			
-			if(AnimStates.obeliskStates.get(7).isFinished())
+			if(AnimStates.obeliskStates.get(6).isFinished())
 			{
 				GL11.glDisable(GL11.GL_LIGHTING);
 				GL11.glColor3d(0, varLight, 0);
 			}
 			else
 			{
-				if(AnimStates.obeliskStates.get(7).getPercent() != 0)
+				if(AnimStates.obeliskStates.get(6).getPercent() != 0)
 				{
 					GL11.glDisable(GL11.GL_LIGHTING);
-					GL11.glColor3d(0, AnimStates.obeliskStates.get(7).getPercent()+0.3f, 0);
+					GL11.glColor3d(0, AnimStates.obeliskStates.get(6).getPercent()+0.3f, 0);
 				}
 			}
 			
 			this.MODEL_OBELISK.renderLumPillar();
 			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glColor3f(1, 1, 1);
 		}
 		
 		if(!AnimStates.obeliskStates.get(1).isFinished())
@@ -65,10 +66,15 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 			this.MODEL_OBELISK.renderWalls(AnimStates.obeliskStates.get(2).getPercent());
 		else
 			this.MODEL_OBELISK.renderWalls();
+		
+		if(!AnimStates.obeliskStates.get(3).isFinished())
+			this.MODEL_OBELISK.renderSecondWalls(AnimStates.obeliskStates.get(3).getPercent());
+		else
+			this.MODEL_OBELISK.renderSecondWalls();
 		GL11.glPopMatrix();
 		AnimStates.tickObeliskStates();
 		
-		if(AnimStates.obeliskStates.get(7).isFinished())
+		if(AnimStates.obeliskStates.get(6).isFinished())
 		{
 			if(revertedLight)
 				varLight = varLight-0.003f;
