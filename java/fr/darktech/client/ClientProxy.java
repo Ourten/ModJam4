@@ -2,8 +2,11 @@ package fr.darktech.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import fr.darktech.DarkTech;
 import fr.darktech.client.render.AnimStates;
+import fr.darktech.client.render.IInventoryRenderer;
 import fr.darktech.client.render.InventoryRenderer;
+import fr.darktech.client.render.InventoryRenderer.RenderIndex;
 import fr.darktech.client.render.RenderGenerator;
 import fr.darktech.client.render.RenderGeneratorInvocator;
 import fr.darktech.client.render.RenderObelisk;
@@ -22,7 +25,11 @@ public class ClientProxy extends CommonProxy {
     	RenderingRegistry.registerBlockHandler(new InventoryRenderer());
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, new RenderGenerator());
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGeneratorInvocator.class, new RenderGeneratorInvocator());
+    	
+    	RenderGeneratorInvocator genInvocator = new RenderGeneratorInvocator();
+    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGeneratorInvocator.class, genInvocator);
+    	InventoryRenderer.render.put(new RenderIndex(DarkTech.generatorInvocatorBlock), (IInventoryRenderer) genInvocator);
+    	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityObelisk.class, new RenderObelisk());
     	AnimStates.setupAnimationStates();
     }

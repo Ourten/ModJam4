@@ -96,25 +96,25 @@ public class ModelGeneratorInvocator extends ModelBase
 	}
 
 	public void renderBase() {
-		Base.renderWithRotation(0.6F);
+		Base.renderWithRotation(0.0625F);
 	}
 	
 	public void renderArm(int arm) {
 		switch(arm) {
 			case 0:
-				Arm1.renderWithRotation(0.6F);
+				Arm1.renderWithRotation(0.0625F);
 				break;
 			case 1:
 				Arm2.rotateAngleY = -1.570796F;
-				Arm2.renderWithRotation(0.6F);
+				Arm2.renderWithRotation(0.0625F);
 				break;
 			case 2:
 				Arm3.rotateAngleY = -3.141593F;
-				Arm3.renderWithRotation(0.6F);
+				Arm3.renderWithRotation(0.0625F);
 				break;
 			case 3:
 				Arm4.rotateAngleY = 1.570796F;
-				Arm4.renderWithRotation(0.6F);
+				Arm4.renderWithRotation(0.0625F);
 				break;
 		}
 	}
@@ -122,19 +122,19 @@ public class ModelGeneratorInvocator extends ModelBase
 	public void renderArmLamp(int arm) {
 		switch(arm) {
 			case 1:
-				ALamp1.renderWithRotation(0.6F);
+				ALamp1.renderWithRotation(0.0625F);
 				break;
 			case 2:
 				ALamp2.rotateAngleY = -1.570796F;
-				ALamp2.renderWithRotation(0.6F);
+				ALamp2.renderWithRotation(0.0625F);
 				break;
 			case 3:
 				ALamp3.rotateAngleY = -3.141593F;
-				ALamp3.renderWithRotation(0.6F);
+				ALamp3.renderWithRotation(0.0625F);
 				break;
 			case 0:
 				ALamp4.rotateAngleY = 1.570796F;
-				ALamp4.renderWithRotation(0.6F);
+				ALamp4.renderWithRotation(0.0625F);
 				break;
 		}
 	}
@@ -142,16 +142,16 @@ public class ModelGeneratorInvocator extends ModelBase
 	public void renderWithoutArmLamp(int arm) {
 		switch(arm) {
 			case 1:
-				Lamp2.renderWithRotation(0.6F);
+				Lamp2.renderWithRotation(0.0625F);
 				break;
 			case 2:
-				Lamp4.renderWithRotation(0.6F);
+				Lamp4.renderWithRotation(0.0625F);
 				break;
 			case 3:
-				Lamp6.renderWithRotation(0.6F);
+				Lamp6.renderWithRotation(0.0625F);
 				break;
 			case 0:
-				Lamp8.renderWithRotation(0.6F);
+				Lamp8.renderWithRotation(0.0625F);
 				break;
 		}
 	}
@@ -159,16 +159,16 @@ public class ModelGeneratorInvocator extends ModelBase
 	public void renderBaseLamp(int side) {
 		switch(side) {
 			case 0:
-				Lamp1.renderWithRotation(0.6F);
+				Lamp1.renderWithRotation(0.0625F);
 				break;
 			case 1:
-				Lamp3.renderWithRotation(0.6F);
+				Lamp3.renderWithRotation(0.0625F);
 				break;
 			case 2:
-				Lamp5.renderWithRotation(0.6F);
+				Lamp5.renderWithRotation(0.0625F);
 				break;
 			case 3:
-				Lamp7.renderWithRotation(0.6F);
+				Lamp7.renderWithRotation(0.0625F);
 				break;
 		}
 	}

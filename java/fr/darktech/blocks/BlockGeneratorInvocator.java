@@ -5,7 +5,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import fr.darktech.DarkTech;
+import fr.darktech.client.ClientProxy;
 import fr.darktech.tiles.TileEntityGeneratorInvocator;
 
 public class BlockGeneratorInvocator extends BlockContainer
@@ -15,6 +18,12 @@ public class BlockGeneratorInvocator extends BlockContainer
 		super(Material.iron);
 		this.setBlockName("BlockGeneratorInvocator");
 		this.setCreativeTab(DarkTech.tabDarkTech);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public int getRenderType()
+	{
+		return ClientProxy.inventoryID;
 	}
 	
 	@Override
