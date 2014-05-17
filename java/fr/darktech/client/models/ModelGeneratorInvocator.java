@@ -156,10 +156,20 @@ public class ModelGeneratorInvocator extends ModelBase
 		}
 	}
 	
-	public void renderBaseLamps() {
-		Lamp1.renderWithRotation(0.6F);
-		Lamp3.renderWithRotation(0.6F);
-		Lamp5.renderWithRotation(0.6F);
-		Lamp7.renderWithRotation(0.6F);
+	public void renderBaseLamp(int side) {
+		switch(side) {
+			case 0:
+				Lamp1.renderWithRotation(0.6F);
+				break;
+			case 1:
+				Lamp3.renderWithRotation(0.6F);
+				break;
+			case 2:
+				Lamp5.renderWithRotation(0.6F);
+				break;
+			case 3:
+				Lamp7.renderWithRotation(0.6F);
+				break;
+		}
 	}
 }
