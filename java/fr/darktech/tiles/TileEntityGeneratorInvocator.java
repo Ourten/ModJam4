@@ -3,11 +3,16 @@ package fr.darktech.tiles;
 import java.util.Arrays;
 
 import fr.darktech.DarkTech;
+
 import fr.darktech.energy.BaseTileGenerator;
 import fr.darktech.energy.IEnergyReceiver;
 import fr.darktech.exception.NetworkException;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+
 
 public class TileEntityGeneratorInvocator extends TileEntity implements IEnergyReceiver  {
 	private boolean has3x3FreeZone = false;
@@ -28,10 +33,42 @@ public class TileEntityGeneratorInvocator extends TileEntity implements IEnergyR
 		return this.has3x3FreeZone;
 	}
 	
+	@Override
+	public AxisAlignedBB getRenderBoundingBox()
+	{
+		if(this.has3x3FreeZone)
+			return AxisAlignedBB.getAABBPool().getAABB(xCoord-1, yCoord, zCoord-1, xCoord + 2, yCoord + 1, zCoord + 2);
+		else
+			return AxisAlignedBB.getAABBPool().getAABB(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 1, zCoord + 1);
+	}
+	
 	public boolean canDeployArm(int arm) {
 		if(arm > 3 || arm < 0)
 			return false;
 		return this.canDeployArm[arm];
+	}
+	
+	public boolean isFree(int side) {
+		switch(side) {
+			case 0:
+				return worldObj.isAirBlock(xCoord, yCoord, zCoord - 1);
+			case 1:
+				return worldObj.isAirBlock(xCoord - 1, yCoord, zCoord);
+			case 2:
+				return worldObj.isAirBlock(xCoord, yCoord, zCoord + 1);
+			case 3:
+				return worldObj.isAirBlock(xCoord + 1, yCoord, zCoord);
+			case 4:
+				return worldObj.isAirBlock(xCoord - 1, yCoord, zCoord - 1);
+			case 5:
+				return worldObj.isAirBlock(xCoord - 1, yCoord, zCoord + 1);
+			case 6:
+				return worldObj.isAirBlock(xCoord + 1, yCoord, zCoord + 1);
+			case 7:
+				return worldObj.isAirBlock(xCoord + 1, yCoord, zCoord - 1);
+		}
+		
+		return false;
 	}
 	
 	@Override
