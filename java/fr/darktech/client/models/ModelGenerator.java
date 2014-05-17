@@ -165,6 +165,15 @@ public class ModelGenerator extends ModelBase
 		Redstone.renderWithRotation(0.0625f);
 	}
 	
+	public void renderRedstone(float percent)
+	{
+		Redstone = new ModelRenderer( this, 154, 8 );
+		Redstone.setTextureSize( 256, 64 );
+		Redstone.addBox( -8F, 8-(16*percent), -8F, 16, (int)(16*percent), 16);
+		Redstone.setRotationPoint( 0F, 16F, 0F );
+		Redstone.renderWithRotation(0.0625f);
+	}
+	
 	public void renderWalls()
 	{
 		Wall1.renderWithRotation(0.0625f);

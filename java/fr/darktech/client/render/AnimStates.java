@@ -39,5 +39,10 @@ public class AnimStates
 		secondWalls.addDepend(walls, 1f);
 		secondWalls.setSpeed(0.003f);
 		generatorStates.add(secondWalls);
+		
+		AnimState redstone = new AnimState("redstone");
+		redstone.addDepend(walls, 1f);
+		redstone.setSpeed(0.002f);
+		generatorStates.add(redstone);
 	}
 }
