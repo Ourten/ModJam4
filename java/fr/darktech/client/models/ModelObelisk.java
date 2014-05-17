@@ -167,96 +167,88 @@ public class ModelObelisk extends ModelBase
 	
 	public void renderBase()
 	{
-		Base.renderWithRotation(0.0625);
+		Base.renderWithRotation(0.0625f);
 	}
 	
 	public void renderPillars()
 	{
-		Pillar1.renderWithRotation(0.0625);
-		Pillar2.renderWithRotation(0.0625);
+		Pillar1.renderWithRotation(0.0625f);
+		Pillar2.renderWithRotation(0.0625f);
 	}
 	
 	public void renderWalls()
 	{
-		Wall1.renderWithRotation(0.0625);
-		Wall2.renderWithRotation(0.0625);
+		Wall1.renderWithRotation(0.0625f);
+		Wall2.renderWithRotation(0.0625f);
 
 		Wall3.rotateAngleY = -1.570796F;
-		Wall3.renderWithRotation(0.0625);
+		Wall3.renderWithRotation(0.0625f);
 
 		Wall4.rotateAngleY = -1.570796F;
-		Wall4.renderWithRotation(0.0625);
+		Wall4.renderWithRotation(0.0625f);
 
-		Wall5.renderWithRotation(0.0625);
-		Wall6.renderWithRotation(0.0625);
+		Wall5.renderWithRotation(0.0625f);
+		Wall6.renderWithRotation(0.0625f);
 
 		Wall7.rotateAngleY = -1.570796F;
-		Wall7.renderWithRotation(0.0625);
+		Wall7.renderWithRotation(0.0625f);
 
 		Wall8.rotateAngleY = -1.570796F;
-		Wall8.renderWithRotation(0.0625);
+		Wall8.renderWithRotation(0.0625f);
 	}
 	
 	public void renderPillarsWalls()
 	{
-		PillarWall1.renderWithRotation(0.0625);
-		PillarWall2.renderWithRotation(0.0625);
-		PillarWall3.renderWithRotation(0.0625);
+		PillarWall1.renderWithRotation(0.0625f);
+		PillarWall2.renderWithRotation(0.0625f);
+		PillarWall3.renderWithRotation(0.0625f);
 
 		PillarWall4.rotateAngleY = -1.570796F;
-		PillarWall4.renderWithRotation(0.0625);
+		PillarWall4.renderWithRotation(0.0625f);
 
 		PillarWall5.rotateAngleY = -1.570796F;
-		PillarWall5.renderWithRotation(0.0625);
+		PillarWall5.renderWithRotation(0.0625f);
 
 		PillarWall6.rotateAngleY = -1.570796F;
-		PillarWall6.renderWithRotation(0.0625);
+		PillarWall6.renderWithRotation(0.0625f);
 
 		PillarWall7.rotateAngleY = -1.570796F;
-		PillarWall7.renderWithRotation(0.0625);
+		PillarWall7.renderWithRotation(0.0625f);
 
 		PillarWall8.rotateAngleY = -1.570796F;
-		PillarWall8.renderWithRotation(0.0625);
+		PillarWall8.renderWithRotation(0.0625f);
 
 		PillarWall9.rotateAngleY = -1.570796F;
-		PillarWall9.renderWithRotation(0.0625);
+		PillarWall9.renderWithRotation(0.0625f);
 
-		PillarWall10.renderWithRotation(0.0625);
-		PillarWall11.renderWithRotation(0.0625);
-		PillarWall12.renderWithRotation(0.0625);
+		PillarWall10.renderWithRotation(0.0625f);
+		PillarWall11.renderWithRotation(0.0625f);
+		PillarWall12.renderWithRotation(0.0625f);
 	}
 	
 	public void renderPillarsCorners()
 	{
-		PillarCorner1.renderWithRotation(0.0625);
-		PillarCorner2.renderWithRotation(0.0625);
-		PillarCorner3.renderWithRotation(0.0625);
-		PillarCorner4.renderWithRotation(0.0625);
+		PillarCorner1.renderWithRotation(0.0625f);
+		PillarCorner2.renderWithRotation(0.0625f);
+		PillarCorner3.renderWithRotation(0.0625f);
+		PillarCorner4.renderWithRotation(0.0625f);
 	}
 	
 	public void renderLumPillar()
 	{
-		PillarLum1.renderWithRotation(0.0625);
+		PillarLum1.renderWithRotation(0.0625f);
 	}
 	
 	public void renderLogo()
 	{
 		Logo.rotateAngleY = -3.141593F;
-		Logo.renderWithRotation(0.0625);
+		Logo.renderWithRotation(0.0625f);
 
 		Logo1.rotateAngleX = -6.283185F;
 		Logo1.rotateAngleY = -1.570796F;
-		Logo1.renderWithRotation(0.0625);
+		Logo1.renderWithRotation(0.0625f);
 
 		Logo2.rotateAngleY = 1.685874E-07F;
-		Logo2.renderWithRotation(0.0625);
-	}
-
-	public void render(float 0.0625)
-	{
-
-
-
-
+		Logo2.renderWithRotation(0.0625f);
 	}
 }

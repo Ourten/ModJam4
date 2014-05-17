@@ -28,7 +28,7 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 		GL11.glTranslated(x+0.5, y+1.5, z+0.5);
 		GL11.glRotated(180, 0, 0, 1);
 		this.bindTexture(TEX_OBELISK);
-		this.MODEL_OBELISK.render(0.0625f);
+		this.MODEL_OBELISK.renderPillars();
 		GL11.glPopMatrix();
 	}
 }
