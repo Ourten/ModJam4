@@ -95,37 +95,71 @@ public class ModelGeneratorInvocator extends ModelBase
 		ALamp4.setRotationPoint( 0F, 23F, 0F );
 	}
 
-	public void render(float par7)
-	{
-		Base.renderWithRotation(par7);
-		Lamp1.renderWithRotation(par7);
-		Lamp2.renderWithRotation(par7);
-		Lamp3.renderWithRotation(par7);
-		Lamp4.renderWithRotation(par7);
-		Lamp6.renderWithRotation(par7);
-		Lamp5.renderWithRotation(par7);
-		Lamp7.renderWithRotation(par7);
-		Lamp8.renderWithRotation(par7);
-		Arm1.renderWithRotation(par7);
-
-		Arm2.rotateAngleY = -1.570796F;
-		Arm2.renderWithRotation(par7);
-
-		Arm3.rotateAngleY = -3.141593F;
-		Arm3.renderWithRotation(par7);
-
-		Arm4.rotateAngleY = 1.570796F;
-		Arm4.renderWithRotation(par7);
-
-		ALamp1.renderWithRotation(par7);
-
-		ALamp2.rotateAngleY = -1.570796F;
-		ALamp2.renderWithRotation(par7);
-
-		ALamp3.rotateAngleY = -3.141593F;
-		ALamp3.renderWithRotation(par7);
-
-		ALamp4.rotateAngleY = 1.570796F;
-		ALamp4.renderWithRotation(par7);
+	public void renderBase() {
+		Base.renderWithRotation(0.6F);
+	}
+	
+	public void renderArm(int arm) {
+		switch(arm) {
+			case 0:
+				Arm1.renderWithRotation(0.6F);
+				break;
+			case 1:
+				Arm2.rotateAngleY = -1.570796F;
+				Arm2.renderWithRotation(0.6F);
+				break;
+			case 2:
+				Arm3.rotateAngleY = -3.141593F;
+				Arm3.renderWithRotation(0.6F);
+				break;
+			case 3:
+				Arm4.rotateAngleY = 1.570796F;
+				Arm4.renderWithRotation(0.6F);
+				break;
+		}
+	}
+	
+	public void renderArmLamp(int arm) {
+		switch(arm) {
+			case 1:
+				ALamp1.renderWithRotation(0.6F);
+				break;
+			case 2:
+				ALamp2.rotateAngleY = -1.570796F;
+				ALamp2.renderWithRotation(0.6F);
+				break;
+			case 3:
+				ALamp3.rotateAngleY = -3.141593F;
+				ALamp3.renderWithRotation(0.6F);
+				break;
+			case 0:
+				ALamp4.rotateAngleY = 1.570796F;
+				ALamp4.renderWithRotation(0.6F);
+				break;
+		}
+	}
+	
+	public void renderWithoutArmLamp(int arm) {
+		switch(arm) {
+			case 1:
+				Lamp2.renderWithRotation(0.6F);
+				break;
+			case 2:
+				Lamp4.renderWithRotation(0.6F);
+				break;
+			case 3:
+				Lamp6.renderWithRotation(0.6F);
+				break;
+			case 0:
+				Lamp8.renderWithRotation(0.6F);
+				break;
+		}
+	}
+	
+	public void renderBaseLamps() {
+		Lamp1.renderWithRotation(0.6F);
+		Lamp3.renderWithRotation(0.6F);
+		Lamp5.renderWithRotation(0.6F);
+		Lamp7.renderWithRotation(0.6F);
 	}
 }

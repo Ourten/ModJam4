@@ -21,7 +21,7 @@ public class BlockGeneratorInvocator extends BlockContainer
 	public int getLightValue(IBlockAccess w, int x, int y, int z)
 	{
 		TileEntityGeneratorInvocator tile = (TileEntityGeneratorInvocator) w.getTileEntity(x, y, z);
-		if(tile.canPlaceGenerator())
+		if(tile.has3x3FreeZone())
 			return 15;
 		return 0;
 	}
