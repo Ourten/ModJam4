@@ -60,14 +60,15 @@ public class DarkTech {
     public void preInit(FMLPreInitializationEvent event) {
 		network = new NetworkManager();
 			
-		redstoneFluid = new Fluid("redFluid").setLuminosity(14).setViscosity(400).setTemperature(1000);
+		redstoneFluid = new Fluid("redfluid").setLuminosity(14).setViscosity(400).setTemperature(1000);
 		FluidRegistry.registerFluid(redstoneFluid);
 		
 		redstoneFluidBlock = new RedstoneFluid(redstoneFluid).setCreativeTab(tabDarkTech).setBlockName("RedstoneFluid").setBlockTextureName("redstone_block");
 		redstoneFluid.setBlock(redstoneFluidBlock);
 		
 		redstoneBucket = new ItemBucket(redstoneFluid.getBlock()).setUnlocalizedName("RedstoneBucket").setTextureName("bucket_water").setContainerItem(Items.bucket).setCreativeTab(tabDarkTech);
-		FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("redFluid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(redstoneBucket), new ItemStack(Items.bucket));
+
+		FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack("redfluid", FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(redstoneBucket), new ItemStack(Items.bucket));
 		
 		GameRegistry.registerBlock(redstoneFluidBlock, "redstoneFluidBlock");
 		GameRegistry.registerItem(redstoneBucket, "redstoneBucket");
