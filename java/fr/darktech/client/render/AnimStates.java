@@ -31,7 +31,34 @@ public class AnimStates
 	
 	public static final void setupObelisk()
 	{
+		AnimState pillars = new AnimState("pillars");
+		pillars.setSpeed(0.003f);
+		generatorStates.add(pillars);
 		
+		AnimState corners = new AnimState("corners");
+		corners.setSpeed(0.002f);
+		corners.addDepend(pillars, 0.5f);
+		generatorStates.add(corners);
+		
+		AnimState walls = new AnimState("walls");
+		walls.setSpeed(0.002f);
+		walls.addDepend(pillars, 0.25f);
+		generatorStates.add(walls);
+		
+		AnimState secondWalls = new AnimState("secondWalls");
+		secondWalls.setSpeed(0.003f);
+		secondWalls.addDepend(walls, 1);
+		generatorStates.add(secondWalls);
+		
+		AnimState logo = new AnimState("logo");
+		logo.setSpeed(0.003f);
+		logo.addDepend(pillars, 1);
+		generatorStates.add(logo);
+		
+		AnimState wallsCorners = new AnimState("wcorners");
+		wallsCorners.setSpeed(0.001f);
+		wallsCorners.addDepend(secondWalls, 0.5f);
+		generatorStates.add(wallsCorners);
 	}
 	
 	public static final void setupGenerator()

@@ -176,6 +176,26 @@ public class ModelObelisk extends ModelBase
 		Pillar2.renderWithRotation(0.0625f);
 	}
 	
+	public void renderPillars(float percent)
+	{
+		Pillar1 = new ModelRenderer( this, 48, 47 );
+		Pillar1.setTextureSize( 128, 128 );
+		Pillar1.addBox( -10F, 15F-(30*percent), -10F, 20, (int)(30*percent), 20);
+		Pillar1.setRotationPoint( 0F, 9F, 0F );
+		Pillar2 = new ModelRenderer( this, 48, 15 );
+		Pillar2.setTextureSize( 128, 128 );
+		Pillar2.addBox( -10F, -6F, -10F, 20, (int)(12*percent), 20);
+		Pillar2.setRotationPoint( 0F, -13.5F, 0F );
+		PillarLum1 = new ModelRenderer( this, 0, -7 );
+		PillarLum1.setTextureSize( 128, 128 );
+		PillarLum1.addBox( -9.5F, -1F, -9.5F, 19, (int)(2*percent), 19);
+		PillarLum1.setRotationPoint( 0F, -6.5F, 0F );
+		
+		Pillar1.renderWithRotation(0.0625f);
+		Pillar2.renderWithRotation(0.0625f);
+		PillarLum1.renderWithRotation(0.0625f);
+	}
+	
 	public void renderWalls()
 	{
 		Wall1.renderWithRotation(0.0625f);
