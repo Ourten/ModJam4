@@ -176,6 +176,8 @@ public class ModelObelisk extends ModelBase
 		Pillar2.renderWithRotation(0.0625f);
 	}
 	
+	int value = 0;
+	
 	public void renderPillars(float percent)
 	{
 		Pillar1 = new ModelRenderer( this, 48, 47 );
@@ -184,16 +186,20 @@ public class ModelObelisk extends ModelBase
 		Pillar1.setRotationPoint( 0F, 9F, 0F );
 		Pillar2 = new ModelRenderer( this, 48, 15 );
 		Pillar2.setTextureSize( 128, 128 );
-		Pillar2.addBox( -10F, 38.5F-(42*percent), -10F, 20, (int)(12*percent), 20);
+		
+		
+		if(percent >0.99f)
+			value = 1;
+		
+		Pillar2.addBox( -10F, 39.5F-value-(42*percent), -10F, 20, (int)(12*percent), 20);
 		Pillar2.setRotationPoint( 0F, -13.5F, 0F );
 		PillarLum1 = new ModelRenderer( this, 0, -7 );
 		PillarLum1.setTextureSize( 128, 128 );
 		PillarLum1.addBox( -9.5F, 32.5F-(32*percent), -9.5F, 19, (int)(2*percent), 19);
 		PillarLum1.setRotationPoint( 0F, -6.5F, 0F );
 		
-		Pillar1.renderWithRotation(0.0625f);
-		Pillar2.renderWithRotation(0.0625f);
-		PillarLum1.renderWithRotation(0.0625f);
+		renderPillars();
+		renderLumPillar();
 	}
 	
 	public void renderWalls()
@@ -215,6 +221,51 @@ public class ModelObelisk extends ModelBase
 
 		Wall8.rotateAngleY = -1.570796F;
 		Wall8.renderWithRotation(0.0625f);
+	}
+	
+	public void renderWalls(float percent)
+	{
+		Wall1 = new ModelRenderer( this, 0, 62 );
+		Wall1.setTextureSize( 128, 128 );
+		Wall1.addBox( -0.5F, 7.5F-(15*percent), -10F, 1, 15, 20);
+		Wall1.setRotationPoint( -10.5F, 16F, 0F );
+		
+		Wall2 = new ModelRenderer( this, 0, 62 );
+		Wall2.setTextureSize( 128, 128 );
+		Wall2.addBox( -0.5F, 7.5F-(15*percent), -10F, 1, 15, 20);
+		Wall2.setRotationPoint( 10.5F, 16F, 0F );
+		
+		Wall3 = new ModelRenderer( this, 0, 62 );
+		Wall3.setTextureSize( 128, 128 );
+		Wall3.addBox( -0.5F, -7.5F, -10F, 1, 15, 20);
+		Wall3.setRotationPoint( 0F, 16F, -10.5F );
+		
+		Wall4 = new ModelRenderer( this, 0, 62 );
+		Wall4.setTextureSize( 128, 128 );
+		Wall4.addBox( -0.5F, -7.5F, -10F, 1, 15, 20);
+		Wall4.setRotationPoint( 9.536743E-07F, 16F, 10.5F );
+		
+		Wall5 = new ModelRenderer( this, 0, 34 );
+		Wall5.setTextureSize( 128, 128 );
+		Wall5.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall5.setRotationPoint( -12F, 19.5F, 0F );
+		
+		Wall6 = new ModelRenderer( this, 0, 34 );
+		Wall6.setTextureSize( 128, 128 );
+		Wall6.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall6.setRotationPoint( 12F, 19.5F, 0F );
+		
+		Wall7 = new ModelRenderer( this, 0, 34 );
+		Wall7.setTextureSize( 128, 128 );
+		Wall7.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall7.setRotationPoint( 0F, 19.5F, -12F );
+		
+		Wall8 = new ModelRenderer( this, 0, 34 );
+		Wall8.setTextureSize( 128, 128 );
+		Wall8.addBox( -1F, -4F, -10F, 2, 8, 20);
+		Wall8.setRotationPoint( 0F, 19.5F, 12F );
+		
+		renderWalls();
 	}
 	
 	public void renderPillarsWalls()
@@ -252,6 +303,31 @@ public class ModelObelisk extends ModelBase
 		PillarCorner2.renderWithRotation(0.0625f);
 		PillarCorner3.renderWithRotation(0.0625f);
 		PillarCorner4.renderWithRotation(0.0625f);
+	}
+	
+	public void renderPillarsCorners(float percent)
+	{
+		PillarCorner1 = new ModelRenderer( this, 112, 0 );
+		PillarCorner1.setTextureSize( 128, 128 );
+		PillarCorner1.addBox( -2F, 10F-(18*percent), -2F, 4, (int)(18*percent), 4);
+		PillarCorner1.setRotationPoint( -12F, 14.5F, 12F );
+		
+		PillarCorner2 = new ModelRenderer( this, 112, 0 );
+		PillarCorner2.setTextureSize( 128, 128 );
+		PillarCorner2.addBox( -2F, 10F-(18*percent), -2F, 4, (int)(18*percent), 4);
+		PillarCorner2.setRotationPoint( -12F, 14.5F, -12F );
+		
+		PillarCorner3 = new ModelRenderer( this, 112, 0 );
+		PillarCorner3.setTextureSize( 128, 128 );
+		PillarCorner3.addBox( -2F, 10F-(18*percent), -2F, 4, (int)(18*percent), 4);
+		PillarCorner3.setRotationPoint( 12F, 14.5F, -12F );
+		
+		PillarCorner4 = new ModelRenderer( this, 112, 0 );
+		PillarCorner4.setTextureSize( 128, 128 );
+		PillarCorner4.addBox( -2F, 10F-(18*percent), -2F, 4, (int)(18*percent), 4);
+		PillarCorner4.setRotationPoint( 12F, 14.5F, 12F );
+		
+		renderPillarsCorners();
 	}
 	
 	public void renderLumPillar()

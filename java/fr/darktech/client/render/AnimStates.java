@@ -59,6 +59,11 @@ public class AnimStates
 		wallsCorners.setSpeed(0.001f);
 		wallsCorners.addDepend(secondWalls, 0.5f);
 		obeliskStates.add(wallsCorners);
+		
+		AnimState light = new AnimState("light");
+		light.setSpeed(0.002f);
+		light.addDepend(wallsCorners, 1);
+		obeliskStates.add(light);
 	}
 	
 	public static final void setupGenerator()

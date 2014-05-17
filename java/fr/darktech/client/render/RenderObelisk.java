@@ -15,6 +15,9 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 	private ModelObelisk MODEL_OBELISK = new ModelObelisk();
 	private ResourceLocation TEX_OBELISK = new ResourceLocation(DarkTech.modidFolder, "textures/blocks/model_obelisk.png");
 
+	private float varLight = 0f;
+	private boolean revertedLight = false;
+	
 	@Override
 	public void renderTileEntityAt(TileEntity arg0, double arg1, double arg2,
 			double arg3, float arg4) 
@@ -29,11 +32,48 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 		GL11.glRotated(180, 0, 0, 1);
 		this.bindTexture(TEX_OBELISK);
 		this.MODEL_OBELISK.renderBase();
-	//	if(!AnimStates.obeliskStates.get(0).isFinished())
+		if(!AnimStates.obeliskStates.get(0).isFinished())
 			this.MODEL_OBELISK.renderPillars(AnimStates.obeliskStates.get(0).getPercent());
-		//else
-			//this.MODEL_OBELISK.renderPillars();
+		else
+		{
+			this.MODEL_OBELISK.renderPillars();
+			
+			if(AnimStates.obeliskStates.get(7).isFinished())
+			{
+				GL11.glDisable(GL11.GL_LIGHTING);
+				GL11.glColor3d(0, varLight, 0);
+			}
+			else
+			{
+				if(AnimStates.obeliskStates.get(7).getPercent() != 0)
+				{
+					GL11.glDisable(GL11.GL_LIGHTING);
+					GL11.glColor3d(0, AnimStates.obeliskStates.get(7).getPercent()+0.3f, 0);
+				}
+			}
+			
+			this.MODEL_OBELISK.renderLumPillar();
+			GL11.glEnable(GL11.GL_LIGHTING);
+		}
+		
+		if(!AnimStates.obeliskStates.get(1).isFinished())
+			this.MODEL_OBELISK.renderPillarsCorners(AnimStates.obeliskStates.get(1).getPercent());
+		else
+			this.MODEL_OBELISK.renderPillarsCorners();
+		
+		if(!AnimStates.obeliskStates.get(2).isFinished())
+			this.MODEL_OBELISK.renderWalls(AnimStates.obeliskStates.get(2).getPercent());
+		else
+			this.MODEL_OBELISK.renderWalls();
 		GL11.glPopMatrix();
 		AnimStates.tickObeliskStates();
+		
+		if(AnimStates.obeliskStates.get(7).isFinished())
+		{
+			if(revertedLight)
+				varLight = varLight-0.003f;
+			else
+				varLight = varLight+0.003f;
+		}
 	}
 }
