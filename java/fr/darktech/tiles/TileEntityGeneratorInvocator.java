@@ -3,8 +3,8 @@ package fr.darktech.tiles;
 import java.util.Arrays;
 
 import fr.darktech.DarkTech;
-
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 
 public class TileEntityGeneratorInvocator extends TileEntity {
 	private boolean has3x3FreeZone = false;
@@ -19,6 +19,15 @@ public class TileEntityGeneratorInvocator extends TileEntity {
 	
 	public boolean has3x3FreeZone() {
 		return this.has3x3FreeZone;
+	}
+	
+	@Override
+	public AxisAlignedBB getRenderBoundingBox()
+	{
+		if(this.has3x3FreeZone)
+			return AxisAlignedBB.getAABBPool().getAABB(xCoord-1, yCoord, zCoord-1, xCoord + 2, yCoord + 1, zCoord + 2);
+		else
+			return AxisAlignedBB.getAABBPool().getAABB(xCoord, yCoord, zCoord, xCoord + 1, yCoord + 1, zCoord + 1);
 	}
 	
 	public boolean canDeployArm(int arm) {
