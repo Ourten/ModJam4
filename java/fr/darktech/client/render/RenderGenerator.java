@@ -18,9 +18,6 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 	private float varLight = 0f;
 	private boolean revertedLight = false;
 	
-	private float deploy = 0f;
-	private int state = 0;
-	
 	@Override
 	public void renderTileEntityAt(TileEntity arg0, double arg1, double arg2,
 			double arg3, float arg4) 
@@ -36,28 +33,23 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		this.bindTexture(TEX_GENERATOR);
 		
 		MODEL_GENERATOR.renderBase();
-		
-		System.out.println("#0 : "+AnimStates.generatorStates.get(0).getPercent());
-		System.out.println("#1 : "+AnimStates.generatorStates.get(1).getPercent());
+
 		if(!AnimStates.generatorStates.get(1).isFinished())
-		{
 			MODEL_GENERATOR.renderWalls(AnimStates.generatorStates.get(1).getPercent());
-		}
 		else
 			MODEL_GENERATOR.renderWalls();
 		
-		if(state == 2)
-		{
-			MODEL_GENERATOR.renderSecondWalls(deploy);
-			MODEL_GENERATOR.renderWallPillars(deploy);
-		}
-		else if(state > 2)
-		{
-			MODEL_GENERATOR.renderSecondWalls();
+		if(!AnimStates.generatorStates.get(2).isFinished())
+			MODEL_GENERATOR.renderWallPillars(AnimStates.generatorStates.get(2).getPercent());
+		else
 			MODEL_GENERATOR.renderWallPillars();
-		}
 		
-		if(state >3)
+		if(!AnimStates.generatorStates.get(3).isFinished())
+			MODEL_GENERATOR.renderSecondWalls(AnimStates.generatorStates.get(3).getPercent());
+		else
+			MODEL_GENERATOR.renderSecondWalls();
+		
+		/*if(state >3)
 		{
 			GL11.glColor3d(0, varLight, 0);
 			GL11.glDisable(GL11.GL_LIGHTING);
@@ -73,12 +65,12 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 			MODEL_GENERATOR.renderRedstone();
 		
 		if(state >3)
-			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glEnable(GL11.GL_LIGHTING);*/
 		
 		GL11.glColor3d(1, 1, 1);
 		
-		if(state == 0)
-			MODEL_GENERATOR.renderPillars(deploy);
+		if(!AnimStates.generatorStates.get(0).isFinished())
+			MODEL_GENERATOR.renderPillars(AnimStates.generatorStates.get(0).getPercent());
 		else
 			MODEL_GENERATOR.renderPillars();
 		GL11.glPopMatrix();

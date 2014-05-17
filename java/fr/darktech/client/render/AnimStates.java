@@ -15,7 +15,7 @@ public class AnimStates
 	{
 		for(AnimState state : generatorStates)
 		{
-			state.tick(0.01f);
+			state.tick(0.002f);
 		}
 	}
 	
@@ -26,7 +26,14 @@ public class AnimStates
 		
 		AnimState walls = new AnimState("walls");
 		walls.addDepend(pillars, 0.25f);
-		
 		generatorStates.add(walls);
+		
+		AnimState wallsPillars = new AnimState("wallPillars");
+		wallsPillars.addDepend(pillars, 0.20f);
+		generatorStates.add(wallsPillars);
+		
+		AnimState secondWalls = new AnimState("secondWalls");
+		secondWalls.addDepend(walls, 1f);
+		generatorStates.add(secondWalls);
 	}
 }

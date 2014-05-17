@@ -7,6 +7,7 @@ public class AnimState
 	private String name;
 	private float percent;
 	private boolean isFinished;
+	private float speed;
 	private HashMap<AnimState, Float> depends = new HashMap<AnimState, Float>();
 	
 	public AnimState(String name)
@@ -30,12 +31,16 @@ public class AnimState
 	{
 		if(!this.isFinished)
 		{
+			System.out.println(this.depends);
 			if(!this.depends.isEmpty())
 			{
 				if(isDependsSatisfieds())
 				{
 					if(this.percent+f >= 1)
+					{
 						this.isFinished = true;
+						this.percent = 1f;
+					}
 					else
 						this.percent = this.percent+f;
 				}
@@ -54,7 +59,7 @@ public class AnimState
 	{
 		for(AnimState state : depends.keySet())
 		{
-			if(depends.get(state) != state.getPercent())
+			if(depends.get(state) > state.getPercent())
 			{
 				return false;
 			}
