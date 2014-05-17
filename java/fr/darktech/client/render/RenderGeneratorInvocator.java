@@ -30,17 +30,19 @@ public class RenderGeneratorInvocator extends TileEntitySpecialRenderer
 		this.bindTexture(TEX_INVOCATOR);
 		MODEL_INVOCATOR.renderBase();
 		
-		setColorByState(invocator);
-		MODEL_INVOCATOR.renderBaseLamps();
+		for(int i = 0; i < 4; i++) {
+			setColorByState(invocator, i + 4);
+			MODEL_INVOCATOR.renderBaseLamp(i);
+		}
 		GL11.glColor3d(1, 1, 1);
 		
 		for(int i = 0; i < 4; i++) {
 			if(invocator.canDeployArm(i)) {
 				MODEL_INVOCATOR.renderArm(i);
-				setColorByState(invocator);
+				setColorByState(invocator, i);
 				MODEL_INVOCATOR.renderArmLamp(i);
 			} else {
-				setColorByState(invocator);
+				setColorByState(invocator, i);
 				MODEL_INVOCATOR.renderWithoutArmLamp(i);
 			}
 			GL11.glColor3d(1, 1, 1);
@@ -49,10 +51,10 @@ public class RenderGeneratorInvocator extends TileEntitySpecialRenderer
 		GL11.glPopMatrix();
 	}
 	
-	private void setColorByState(TileEntityGeneratorInvocator invocator) {
+	private void setColorByState(TileEntityGeneratorInvocator invocator, int side) {
 		if(invocator.getFlashTime() < 10)
 			GL11.glColor3d(1, 0.2, 0.6);
-		else if(invocator.has3x3FreeZone())
+		else if(invocator.isFree(side))
 			GL11.glColor3d(0, 1, 0);
 		else
 			GL11.glColor3d(1, 0, 0);

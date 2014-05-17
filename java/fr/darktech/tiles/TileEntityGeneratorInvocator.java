@@ -27,6 +27,29 @@ public class TileEntityGeneratorInvocator extends TileEntity {
 		return this.canDeployArm[arm];
 	}
 	
+	public boolean isFree(int side) {
+		switch(side) {
+			case 0:
+				return worldObj.isAirBlock(xCoord, yCoord, zCoord - 1);
+			case 1:
+				return worldObj.isAirBlock(xCoord - 1, yCoord, zCoord);
+			case 2:
+				return worldObj.isAirBlock(xCoord, yCoord, zCoord + 1);
+			case 3:
+				return worldObj.isAirBlock(xCoord + 1, yCoord, zCoord);
+			case 4:
+				return worldObj.isAirBlock(xCoord - 1, yCoord, zCoord - 1);
+			case 5:
+				return worldObj.isAirBlock(xCoord - 1, yCoord, zCoord + 1);
+			case 6:
+				return worldObj.isAirBlock(xCoord + 1, yCoord, zCoord + 1);
+			case 7:
+				return worldObj.isAirBlock(xCoord + 1, yCoord, zCoord - 1);
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public void updateEntity() {
 		Arrays.fill(canDeployArm, false);
