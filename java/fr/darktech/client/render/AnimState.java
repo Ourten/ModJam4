@@ -17,6 +17,16 @@ public class AnimState
 		this.isFinished = false;
 	}
 	
+	public float getSpeed()
+	{
+		return this.speed;
+	}
+	
+	public void setSpeed(float f)
+	{
+		this.speed = f;
+	}
+	
 	public void setName(String str)
 	{
 		this.name = str;
@@ -31,7 +41,6 @@ public class AnimState
 	{
 		if(!this.isFinished)
 		{
-			System.out.println(this.depends);
 			if(!this.depends.isEmpty())
 			{
 				if(isDependsSatisfieds())

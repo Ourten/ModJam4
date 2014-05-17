@@ -15,25 +15,29 @@ public class AnimStates
 	{
 		for(AnimState state : generatorStates)
 		{
-			state.tick(0.002f);
+			state.tick(state.getSpeed());
 		}
 	}
 	
 	public static final void setupGenerator()
 	{
 		AnimState pillars = new AnimState("pillars");
+		pillars.setSpeed(0.002f);
 		generatorStates.add(pillars);
 		
 		AnimState walls = new AnimState("walls");
 		walls.addDepend(pillars, 0.25f);
+		walls.setSpeed(0.0015f);
 		generatorStates.add(walls);
 		
 		AnimState wallsPillars = new AnimState("wallPillars");
 		wallsPillars.addDepend(pillars, 0.20f);
+		wallsPillars.setSpeed(0.001f);
 		generatorStates.add(wallsPillars);
 		
 		AnimState secondWalls = new AnimState("secondWalls");
 		secondWalls.addDepend(walls, 1f);
+		secondWalls.setSpeed(0.003f);
 		generatorStates.add(secondWalls);
 	}
 }
