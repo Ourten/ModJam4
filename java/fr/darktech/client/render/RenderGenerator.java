@@ -94,10 +94,20 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		else if(varLight<=0.4f)
 			revertedLight = false;
 		
-		if(revertedLight)
-			varLight = varLight-0.003f;
+		if(!AnimStates.generatorStates.get(6).isFinished())
+		{
+			if(revertedLight)
+				varLight = varLight-0.003f*AnimStates.generatorStates.get(6).getPercent();
+			else
+				varLight = varLight+0.003f*AnimStates.generatorStates.get(6).getPercent();
+		}
 		else
-			varLight = varLight+0.003f;
+		{
+			if(revertedLight)
+				varLight = varLight-0.003f;
+			else
+				varLight = varLight+0.003f;
+		}
 		
 		
 		AnimStates.tickGeneratorStates();

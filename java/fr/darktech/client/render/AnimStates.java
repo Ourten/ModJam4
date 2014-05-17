@@ -47,7 +47,12 @@ public class AnimStates
 		
 		AnimState tubes = new AnimState("tubes");
 		tubes.addDepend(secondWalls, 1f);
-		tubes.setSpeed(0.0005f);
+		tubes.setSpeed(0.001f);
 		generatorStates.add(tubes);
+		
+		AnimState color = new AnimState("color");
+		color.addDepend(tubes,1f);
+		color.setSpeed(0.002f);
+		generatorStates.add(color);
 	}
 }
