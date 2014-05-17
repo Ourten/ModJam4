@@ -44,5 +44,10 @@ public class AnimStates
 		redstone.addDepend(walls, 1f);
 		redstone.setSpeed(0.002f);
 		generatorStates.add(redstone);
+		
+		AnimState tubes = new AnimState("tubes");
+		tubes.addDepend(secondWalls, 1f);
+		tubes.setSpeed(0.0005f);
+		generatorStates.add(tubes);
 	}
 }
