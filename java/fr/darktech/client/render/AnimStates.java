@@ -31,28 +31,32 @@ public class AnimStates
 	
 	public static final void setupObelisk()
 	{
-		AnimState pillars = new AnimState("pillars");
-		pillars.setSpeed(0.003f);
-		obeliskStates.add(pillars);
-		
 		AnimState corners = new AnimState("corners");
 		corners.setSpeed(0.002f);
-		corners.addDepend(pillars, 0.5f);
-		obeliskStates.add(corners);
-		
-		AnimState walls = new AnimState("walls");
-		walls.setSpeed(0.002f);
-		walls.addDepend(pillars, 0.25f);
-		obeliskStates.add(walls);
-		
-		AnimState secondWalls = new AnimState("secondWalls");
-		secondWalls.setSpeed(0.003f);
-		secondWalls.addDepend(walls, 1);
-		obeliskStates.add(secondWalls);
 		
 		AnimState wallsCorners = new AnimState("wcorners");
 		wallsCorners.setSpeed(0.002f);
-		wallsCorners.addDepend(secondWalls, 0.5f);
+		wallsCorners.addDepend(corners, 0);
+		
+		AnimState secondWalls = new AnimState("secondWalls");
+		secondWalls.setSpeed(0.003f);
+		secondWalls.addDepend(wallsCorners, 0.5f);
+		
+		AnimState walls = new AnimState("walls");
+		walls.setSpeed(0.002f);
+		walls.addDepend(secondWalls, 0f);
+		
+		AnimState pillars = new AnimState("pillars");
+		pillars.addDepend(walls, 0.8f);
+		pillars.setSpeed(0.003f);
+		obeliskStates.add(pillars);
+		
+		obeliskStates.add(corners);
+		
+		obeliskStates.add(walls);
+		
+		obeliskStates.add(secondWalls);
+		
 		obeliskStates.add(wallsCorners);
 		
 		AnimState logo = new AnimState("logo");
@@ -62,7 +66,7 @@ public class AnimStates
 		
 		AnimState light = new AnimState("light");
 		light.setSpeed(0.002f);
-		light.addDepend(wallsCorners, 0.9f);
+		light.addDepend(pillars, 0.9f);
 		obeliskStates.add(light);
 	}
 	
