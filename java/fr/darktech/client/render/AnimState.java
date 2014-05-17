@@ -62,7 +62,6 @@ public class AnimState
 					this.percent = this.percent+f;
 			}
 		}
-		System.out.println(this.name + " | "+this.percent);
 	}
 	
 	public boolean isDependsSatisfieds()
