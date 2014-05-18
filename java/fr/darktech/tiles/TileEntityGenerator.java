@@ -20,14 +20,6 @@ public class TileEntityGenerator extends BaseTileGenerator
 	private Channel network;
 	
 	public ModelGenerator MODEL_GENERATOR = new ModelGenerator();
-	
-	public ModelGenerator getMODEL_GENERATOR() {
-		return MODEL_GENERATOR;
-	}
-
-	public void setMODEL_GENERATOR(ModelGenerator mODEL_GENERATOR) {
-		MODEL_GENERATOR = mODEL_GENERATOR;
-	}
 
 	public final ArrayList<AnimState> generatorStates = new ArrayList<AnimState>();
 
@@ -38,6 +30,14 @@ public class TileEntityGenerator extends BaseTileGenerator
 	{
 		super();
 		setupGenerator();
+	}
+	
+	public ModelGenerator getMODEL_GENERATOR() {
+		return MODEL_GENERATOR;
+	}
+
+	public void setMODEL_GENERATOR(ModelGenerator mODEL_GENERATOR) {
+		MODEL_GENERATOR = mODEL_GENERATOR;
 	}
 	
 	@Override
@@ -68,10 +68,12 @@ public class TileEntityGenerator extends BaseTileGenerator
 			return true;
 		for(AnimState state : generatorStates)
 		{
+			System.out.println(state.getPercent());
 			if(!state.isFinished())
 				return false;
 		}
 		this.finishDeploy = true;
+		this.startDeploy = false;
 		return true;
 	}
 	
@@ -174,6 +176,6 @@ public class TileEntityGenerator extends BaseTileGenerator
 		{
 			this.tickGeneratorStates();
 		}
-			System.out.println(FMLCommonHandler.instance().getEffectiveSide()+" | "+this.finishDeploy);
+		System.out.println(FMLCommonHandler.instance().getEffectiveSide()+" | "+this.isGeneratorFinished());
 	}
 }

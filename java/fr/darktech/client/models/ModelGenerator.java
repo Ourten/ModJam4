@@ -403,7 +403,6 @@ public class ModelGenerator extends ModelBase
 	
 	public void renderTubes(float percent)
 	{
-		System.out.println(percent);
 		if(percent != 0)
 		{
 			FissionTube6.renderWithRotation(0.0625f);
