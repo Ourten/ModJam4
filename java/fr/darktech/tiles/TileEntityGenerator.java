@@ -2,6 +2,7 @@ package fr.darktech.tiles;
 
 import java.util.ArrayList;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -70,6 +71,7 @@ public class TileEntityGenerator extends BaseTileGenerator
 			if(!state.isFinished())
 				return false;
 		}
+		this.finishDeploy = true;
 		return true;
 	}
 	
@@ -172,5 +174,6 @@ public class TileEntityGenerator extends BaseTileGenerator
 		{
 			this.tickGeneratorStates();
 		}
+			System.out.println(FMLCommonHandler.instance().getEffectiveSide()+" | "+this.finishDeploy);
 	}
 }
