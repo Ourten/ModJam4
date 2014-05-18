@@ -10,7 +10,7 @@ import fr.darktech.DarkTech;
 import fr.darktech.client.models.ModelGenerator;
 import fr.darktech.tiles.TileEntityGenerator;
 
-public class RenderGenerator extends TileEntitySpecialRenderer
+public class RenderGenerator extends TileEntitySpecialRenderer implements IInventoryRenderer
 {
 	private ModelGenerator MODEL_GENERATOR = new ModelGenerator();
 	private ResourceLocation TEX_GENERATOR = new ResourceLocation(DarkTech.modidFolder, "textures/blocks/model_generator.png");
@@ -30,6 +30,12 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 		GL11.glPushMatrix();
 		GL11.glTranslated(x+0.5, y+1.5, z+0.5);
 		GL11.glRotated(180, 0, 0, 1);
+		
+		if(generator == null) {
+			GL11.glScaled(0.5, 0.5, 0.5);
+			GL11.glTranslated(0, 2, 0);
+		}
+		
 		this.bindTexture(TEX_GENERATOR);
 		
 		MODEL_GENERATOR.renderBase();
@@ -109,5 +115,11 @@ public class RenderGenerator extends TileEntitySpecialRenderer
 				varLight = varLight+0.003f;
 		}
 		AnimStates.tickGeneratorStates();
+	}
+	
+	@Override
+	public void renderInventory(double x, double y, double z) 
+	{
+		renderGenerator(null, x, y, z);
 	}
 }

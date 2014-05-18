@@ -24,13 +24,18 @@ public class ClientProxy extends CommonProxy {
     	
     	RenderingRegistry.registerBlockHandler(new InventoryRenderer());
     	
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, new RenderGenerator());
+    	RenderGenerator generator = new RenderGenerator();
+    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, generator);
+    	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.generatorBlock,0), (IInventoryRenderer) generator);
     	
     	RenderGeneratorInvocator genInvocator = new RenderGeneratorInvocator();
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGeneratorInvocator.class, genInvocator);
     	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.generatorInvocatorBlock,0), (IInventoryRenderer) genInvocator);
     	
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityObelisk.class, new RenderObelisk());
+    	RenderObelisk obelisk = new RenderObelisk();
+    	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityObelisk.class, obelisk);
+    	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.obeliskBlock,0), (IInventoryRenderer) obelisk);
+    	
     	AnimStates.setupAnimationStates();
     }
 }
