@@ -25,7 +25,6 @@ public class ClientProxy extends CommonProxy {
     	
     	RenderGenerator generator = new RenderGenerator();
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGenerator.class, generator);
-    	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.generatorBlock,0), (IInventoryRenderer) generator);
     	
     	RenderGeneratorInvocator genInvocator = new RenderGeneratorInvocator();
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGeneratorInvocator.class, genInvocator);

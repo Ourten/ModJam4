@@ -7,12 +7,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import fr.darktech.DarkTech;
-import fr.darktech.client.models.ModelGenerator;
 import fr.darktech.tiles.TileEntityGenerator;
 
 public class RenderGenerator extends TileEntitySpecialRenderer implements IInventoryRenderer
 {
-	private ModelGenerator MODEL_GENERATOR = new ModelGenerator();
 	private ResourceLocation TEX_GENERATOR = new ResourceLocation(DarkTech.modidFolder, "textures/blocks/model_generator.png");
 	
 	private float varLight = 0f;
@@ -38,61 +36,61 @@ public class RenderGenerator extends TileEntitySpecialRenderer implements IInven
 		
 		this.bindTexture(TEX_GENERATOR);
 		
-		MODEL_GENERATOR.renderBase();
+		generator.MODEL_GENERATOR.renderBase();
 
-		if(!AnimStates.generatorStates.get(1).isFinished())
-			MODEL_GENERATOR.renderWalls(AnimStates.generatorStates.get(1).getPercent());
+		if(!generator.generatorStates.get(1).isFinished())
+			generator.MODEL_GENERATOR.renderWalls(generator.generatorStates.get(1).getPercent());
 		else
-			MODEL_GENERATOR.renderWalls();
+			generator.MODEL_GENERATOR.renderWalls();
 		
-		if(!AnimStates.generatorStates.get(2).isFinished())
-			MODEL_GENERATOR.renderWallPillars(AnimStates.generatorStates.get(2).getPercent());
+		if(!generator.generatorStates.get(2).isFinished())
+			generator.MODEL_GENERATOR.renderWallPillars(generator.generatorStates.get(2).getPercent());
 		else
-			MODEL_GENERATOR.renderWallPillars();
+			generator.MODEL_GENERATOR.renderWallPillars();
 		
-		if(!AnimStates.generatorStates.get(3).isFinished())
-			MODEL_GENERATOR.renderSecondWalls(AnimStates.generatorStates.get(3).getPercent());
+		if(!generator.generatorStates.get(3).isFinished())
+			generator.MODEL_GENERATOR.renderSecondWalls(generator.generatorStates.get(3).getPercent());
 		else
-			MODEL_GENERATOR.renderSecondWalls();
+			generator.MODEL_GENERATOR.renderSecondWalls();
 		
-		if(AnimStates.generatorStates.get(5).isFinished())
+		if(generator.generatorStates.get(5).isFinished())
 		{
 			GL11.glColor3d(0, varLight, 0);
 			GL11.glDisable(GL11.GL_LIGHTING);
 		}
 		
-		if(!AnimStates.generatorStates.get(5).isFinished())
+		if(!generator.generatorStates.get(5).isFinished())
 		{
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-			GL11.glTranslated(x+0.5, y+0.5+1*AnimStates.generatorStates.get(5).getPercent(), z+0.5);
+			GL11.glTranslated(x+0.5, y+0.5+1*generator.generatorStates.get(5).getPercent(), z+0.5);
 			GL11.glRotated(180, 0, 0, 1);
-			MODEL_GENERATOR.renderTubes(AnimStates.generatorStates.get(5).getPercent());
+			generator.MODEL_GENERATOR.renderTubes(generator.generatorStates.get(5).getPercent());
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
 			GL11.glTranslated(x+0.5, y+1.5, z+0.5);
 			GL11.glRotated(180, 0, 0, 1);
 		}
 		else
-			MODEL_GENERATOR.renderTubes();
+			generator.MODEL_GENERATOR.renderTubes();
 		
-		if(AnimStates.generatorStates.get(5).isFinished())
+		if(generator.generatorStates.get(5).isFinished())
 			GL11.glColor3d(0, 0.9+varLight/10, 0);
 		
-		if(!AnimStates.generatorStates.get(4).isFinished())
-			MODEL_GENERATOR.renderRedstone(AnimStates.generatorStates.get(4).getPercent());
+		if(!generator.generatorStates.get(4).isFinished())
+			generator.MODEL_GENERATOR.renderRedstone(generator.generatorStates.get(4).getPercent());
 		else
-			MODEL_GENERATOR.renderRedstone();
+			generator.MODEL_GENERATOR.renderRedstone();
 		
-		if(AnimStates.generatorStates.get(5).isFinished())
+		if(generator.generatorStates.get(5).isFinished())
 			GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glColor3d(1, 1, 1);
 		
-		if(!AnimStates.generatorStates.get(0).isFinished())
-			MODEL_GENERATOR.renderPillars(AnimStates.generatorStates.get(0).getPercent());
+		if(!generator.generatorStates.get(0).isFinished())
+			generator.MODEL_GENERATOR.renderPillars(generator.generatorStates.get(0).getPercent());
 		else
-			MODEL_GENERATOR.renderPillars();
+			generator.MODEL_GENERATOR.renderPillars();
 		GL11.glPopMatrix();
 		
 		if(varLight>=0.9f)
@@ -100,12 +98,12 @@ public class RenderGenerator extends TileEntitySpecialRenderer implements IInven
 		else if(varLight<=0.4f)
 			revertedLight = false;
 		
-		if(!AnimStates.generatorStates.get(6).isFinished())
+		if(!generator.generatorStates.get(6).isFinished())
 		{
 			if(revertedLight)
-				varLight = varLight-0.003f*AnimStates.generatorStates.get(6).getPercent();
+				varLight = varLight-0.003f*generator.generatorStates.get(6).getPercent();
 			else
-				varLight = varLight+0.003f*AnimStates.generatorStates.get(6).getPercent();
+				varLight = varLight+0.003f*generator.generatorStates.get(6).getPercent();
 		}
 		else
 		{
@@ -114,7 +112,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer implements IInven
 			else
 				varLight = varLight+0.003f;
 		}
-		AnimStates.tickGeneratorStates();
+		generator.tickGeneratorStates();
 	}
 	
 	@Override

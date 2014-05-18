@@ -3,10 +3,13 @@ package fr.darktech.tiles;
 import java.util.ArrayList;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import fr.darktech.client.models.ModelGenerator;
 import fr.darktech.client.render.AnimState;
-import fr.darktech.client.render.AnimStates;
 import fr.darktech.energy.BaseTileGenerator;
 import fr.darktech.network.Channel;
 
@@ -15,14 +18,39 @@ public class TileEntityGenerator extends BaseTileGenerator
 	private long lastTick;
 	private Channel network;
 	
-	public static final ArrayList<AnimState> generatorStates = new ArrayList<AnimState>();
+	public ModelGenerator MODEL_GENERATOR = new ModelGenerator();
+	
+	public ModelGenerator getMODEL_GENERATOR() {
+		return MODEL_GENERATOR;
+	}
+
+	public void setMODEL_GENERATOR(ModelGenerator mODEL_GENERATOR) {
+		MODEL_GENERATOR = mODEL_GENERATOR;
+	}
+
+	public final ArrayList<AnimState> generatorStates = new ArrayList<AnimState>();
 
 	
 	private boolean startDeploy = true;
+	private boolean finishDeploy = false;
 	public TileEntityGenerator()
 	{
 		super();
 		setupGenerator();
+	}
+	
+	@Override
+	public Packet getDescriptionPacket()
+	{
+		NBTTagCompound nbtTag = new NBTTagCompound();
+		this.writeToNBT(nbtTag);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbtTag);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet)
+	{
+		readFromNBT(packet.func_148857_g());
 	}
 	
 	public void tickGeneratorStates()
@@ -35,6 +63,8 @@ public class TileEntityGenerator extends BaseTileGenerator
 	
 	public boolean isGeneratorFinished()
 	{
+		if(this.finishDeploy)
+			return true;
 		for(AnimState state : generatorStates)
 		{
 			if(!state.isFinished())
@@ -98,6 +128,7 @@ public class TileEntityGenerator extends BaseTileGenerator
 	{
 		super.writeToNBT(tag);
 		tag.setBoolean("deploy", this.startDeploy);
+		tag.setBoolean("finishDeploy", this.finishDeploy);
 	}
 
 	@Override
@@ -105,6 +136,7 @@ public class TileEntityGenerator extends BaseTileGenerator
 	{
 		super.readFromNBT(tag);
 		this.startDeploy = tag.getBoolean("deploy");
+		this.finishDeploy = tag.getBoolean("finishDeploy");
 	}
 
 	@Override
@@ -134,12 +166,11 @@ public class TileEntityGenerator extends BaseTileGenerator
 	public void updateEntity()
 	{
 		if(((System.currentTimeMillis()- lastTick) >= 1000))
-		{
-
 			lastTick = System.currentTimeMillis();
-			
+
+		if(this.startDeploy && !this.isGeneratorFinished())
+		{
+			this.tickGeneratorStates();
 		}
-		
-		if(AnimStates.isGeneratorFinished())
 	}
 }
