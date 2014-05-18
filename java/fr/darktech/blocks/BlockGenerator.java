@@ -1,14 +1,13 @@
 package fr.darktech.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import fr.darktech.DarkTech;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import fr.darktech.client.ClientProxy;
 import fr.darktech.network.INetCompatible;
 import fr.darktech.network.NetworkManager;
@@ -18,7 +17,6 @@ public class BlockGenerator extends BlockContainer {
 	public BlockGenerator() {
 		super(Material.iron);
 		this.setBlockName("BlockGenerator");
-		this.setCreativeTab(DarkTech.tabDarkTech);
 	}
 
 	@SideOnly(Side.CLIENT)
