@@ -10,36 +10,44 @@ import fr.darktech.client.ClientProxy;
 
 public class InventoryRenderer implements ISimpleBlockRenderingHandler
 {
-	public static class RenderIndex
+	public static class TESRIndex
 	{
 		Block block;
-		
-		public RenderIndex(Block block)
+		int metadata;
+
+		public TESRIndex(Block block, int metadata)
 		{
 			this.block = block;
+			this.metadata = metadata;
 		}
-		
+
+		@Override
+		public int hashCode()
+		{
+			return block.hashCode() + metadata;
+		}
+
 		@Override
 		public boolean equals(Object o)
 		{
-			if(!(o instanceof RenderIndex))
+			if(!(o instanceof TESRIndex))
 				return false;
-			
-			RenderIndex index = (RenderIndex)o;
-			
-			return index.block == block;
+
+			TESRIndex tesr = (TESRIndex)o;
+
+			return tesr.block == block && tesr.metadata == metadata;
 		}
 	}
-	
-	public static HashMap<RenderIndex, IInventoryRenderer> render = new HashMap<RenderIndex, IInventoryRenderer>();
+
+	public static HashMap<TESRIndex, IInventoryRenderer> blockByTESR = new HashMap<TESRIndex, IInventoryRenderer>();
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
 	{
-		RenderIndex index = new RenderIndex(block);
-		if(render.containsKey(index))
+		TESRIndex index = new TESRIndex(block, metadata);
+		if(blockByTESR.containsKey(index))
 		{
-			render.get(index).renderInventory(-0.5, -0.5, -0.5);
+			blockByTESR.get(index).renderInventory(-0.5, -0.5, -0.5);
 		}
 	}
 

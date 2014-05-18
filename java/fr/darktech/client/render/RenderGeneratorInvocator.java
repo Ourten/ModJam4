@@ -1,5 +1,6 @@
 package fr.darktech.client.render;
 
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -15,6 +16,11 @@ public class RenderGeneratorInvocator extends TileEntitySpecialRenderer implemen
 	private ModelGeneratorInvocator MODEL_INVOCATOR = new ModelGeneratorInvocator();
 	private ResourceLocation TEX_INVOCATOR = new ResourceLocation(DarkTech.modidFolder, "textures/blocks/model_generator_invocator.png");
 
+	public RenderGeneratorInvocator()
+	{
+		this.func_147497_a(TileEntityRendererDispatcher.instance);
+	}
+	
 	@Override
 	public void renderTileEntityAt(TileEntity arg0, double arg1, double arg2, double arg3, float arg4) 
 	{
@@ -25,6 +31,8 @@ public class RenderGeneratorInvocator extends TileEntitySpecialRenderer implemen
 	{
 		GL11.glPushMatrix();
 		GL11.glTranslated(x+0.5, y+1.525, z+0.5);
+		if(invocator == null)
+			GL11.glScaled(0.5, 1, 0.5);
 		GL11.glRotated(180, 0, 0, 1);
 		this.bindTexture(TEX_INVOCATOR);
 		MODEL_INVOCATOR.renderBase();

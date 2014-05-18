@@ -6,7 +6,7 @@ import fr.darktech.DarkTech;
 import fr.darktech.client.render.AnimStates;
 import fr.darktech.client.render.IInventoryRenderer;
 import fr.darktech.client.render.InventoryRenderer;
-import fr.darktech.client.render.InventoryRenderer.RenderIndex;
+import fr.darktech.client.render.InventoryRenderer.TESRIndex;
 import fr.darktech.client.render.RenderGenerator;
 import fr.darktech.client.render.RenderGeneratorInvocator;
 import fr.darktech.client.render.RenderObelisk;
@@ -28,7 +28,7 @@ public class ClientProxy extends CommonProxy {
     	
     	RenderGeneratorInvocator genInvocator = new RenderGeneratorInvocator();
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGeneratorInvocator.class, genInvocator);
-    	InventoryRenderer.render.put(new RenderIndex(DarkTech.generatorInvocatorBlock), (IInventoryRenderer) genInvocator);
+    	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.generatorInvocatorBlock,0), (IInventoryRenderer) genInvocator);
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityObelisk.class, new RenderObelisk());
     	AnimStates.setupAnimationStates();
