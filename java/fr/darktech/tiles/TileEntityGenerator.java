@@ -2,7 +2,6 @@ package fr.darktech.tiles;
 
 import java.util.ArrayList;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;

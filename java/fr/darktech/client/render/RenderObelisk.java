@@ -8,12 +8,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import fr.darktech.DarkTech;
-import fr.darktech.client.models.ModelObelisk;
 import fr.darktech.tiles.TileEntityObelisk;
 
 public class RenderObelisk extends TileEntitySpecialRenderer implements IInventoryRenderer
 {
-	private ModelObelisk MODEL_OBELISK = new ModelObelisk();
 	private ResourceLocation TEX_OBELISK = new ResourceLocation(DarkTech.modidFolder, "textures/blocks/model_obelisk.png");
 
 	private float varLight = 0f;
@@ -38,51 +36,51 @@ public class RenderObelisk extends TileEntitySpecialRenderer implements IInvento
 		}
 		
 		this.bindTexture(TEX_OBELISK);
-		this.MODEL_OBELISK.renderBase();
-		if(!AnimStates.obeliskStates.get(0).isFinished())
-			this.MODEL_OBELISK.renderPillars(AnimStates.obeliskStates.get(0).getPercent());
+		obelisk.MODEL_OBELISK.renderBase();
+		if(!obelisk.obeliskStates.get(0).isFinished())
+			obelisk.MODEL_OBELISK.renderPillars(obelisk.obeliskStates.get(0).getPercent());
 		else
 		{
-			this.MODEL_OBELISK.renderPillars();
+			obelisk.MODEL_OBELISK.renderPillars();
 			
-			if(AnimStates.obeliskStates.get(6).isFinished())
+			if(obelisk.obeliskStates.get(6).isFinished())
 			{
 				GL11.glDisable(GL11.GL_LIGHTING);
 				GL11.glColor3d(0, varLight, 0);
 			}
 			else
 			{
-				if(AnimStates.obeliskStates.get(6).getPercent() != 0)
+				if(obelisk.obeliskStates.get(6).getPercent() != 0)
 				{
 					GL11.glDisable(GL11.GL_LIGHTING);
-					GL11.glColor3d(0, AnimStates.obeliskStates.get(6).getPercent()+0.3f, 0);
+					GL11.glColor3d(0, obelisk.obeliskStates.get(6).getPercent()+0.3f, 0);
 				}
 			}
 			
-			this.MODEL_OBELISK.renderLumPillar();
+			obelisk.MODEL_OBELISK.renderLumPillar();
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glColor3f(1, 1, 1);
 		}
 		
-		if(!AnimStates.obeliskStates.get(1).isFinished())
-			this.MODEL_OBELISK.renderPillarsCorners(AnimStates.obeliskStates.get(1).getPercent());
+		if(!obelisk.obeliskStates.get(1).isFinished())
+			obelisk.MODEL_OBELISK.renderPillarsCorners(obelisk.obeliskStates.get(1).getPercent());
 		else
-			this.MODEL_OBELISK.renderPillarsCorners();
+			obelisk.MODEL_OBELISK.renderPillarsCorners();
 		
-		if(!AnimStates.obeliskStates.get(2).isFinished())
-			this.MODEL_OBELISK.renderWalls(AnimStates.obeliskStates.get(2).getPercent());
+		if(!obelisk.obeliskStates.get(2).isFinished())
+			obelisk.MODEL_OBELISK.renderWalls(obelisk.obeliskStates.get(2).getPercent());
 		else
-			this.MODEL_OBELISK.renderWalls();
+			obelisk.MODEL_OBELISK.renderWalls();
 		
-		if(!AnimStates.obeliskStates.get(3).isFinished())
-			this.MODEL_OBELISK.renderSecondWalls(AnimStates.obeliskStates.get(3).getPercent());
+		if(!obelisk.obeliskStates.get(3).isFinished())
+			obelisk.MODEL_OBELISK.renderSecondWalls(obelisk.obeliskStates.get(3).getPercent());
 		else
-			this.MODEL_OBELISK.renderSecondWalls();
+			obelisk.MODEL_OBELISK.renderSecondWalls();
 		
-		if(!AnimStates.obeliskStates.get(4).isFinished())
-			this.MODEL_OBELISK.renderPillarsWalls(AnimStates.obeliskStates.get(4).getPercent());
+		if(!obelisk.obeliskStates.get(4).isFinished())
+			obelisk.MODEL_OBELISK.renderPillarsWalls(obelisk.obeliskStates.get(4).getPercent());
 		else
-			this.MODEL_OBELISK.renderPillarsWalls();
+			obelisk.MODEL_OBELISK.renderPillarsWalls();
 		
 		GL11.glDisable(GL11.GL_ALPHA_TEST | GL11.GL_LIGHTING);
 		GL11.glEnable(GL11.GL_BLEND);
@@ -90,19 +88,19 @@ public class RenderObelisk extends TileEntitySpecialRenderer implements IInvento
 		GL11.glDepthMask(false);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		
-		if(!AnimStates.obeliskStates.get(5).isFinished())
-			this.MODEL_OBELISK.renderLogo(AnimStates.obeliskStates.get(5).getPercent());
+		if(!obelisk.obeliskStates.get(5).isFinished())
+			obelisk.MODEL_OBELISK.renderLogo(obelisk.obeliskStates.get(5).getPercent());
 		else
-			this.MODEL_OBELISK.renderLogo();
+			obelisk.MODEL_OBELISK.renderLogo();
 		
 		GL11.glDepthMask(true);
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glPopMatrix();
-		AnimStates.tickObeliskStates();
+		obelisk.tickObeliskStates();
 		
-		if(AnimStates.obeliskStates.get(6).isFinished())
+		if(obelisk.isObeliskFinished())
 		{
 			if(revertedLight)
 				varLight = varLight-0.003f;
