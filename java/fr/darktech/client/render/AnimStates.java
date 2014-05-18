@@ -29,6 +29,26 @@ public class AnimStates
 		}
 	}
 	
+	public static final boolean isGeneratorFinished()
+	{
+		for(AnimState state : generatorStates)
+		{
+			if(!state.isFinished())
+				return false;
+		}
+		return true;
+	}
+	
+	public static final boolean isObeliskFinished()
+	{
+		for(AnimState state : obeliskStates)
+		{
+			if(!state.isFinished())
+				return false;
+		}
+		return true;
+	}
+	
 	public static final void setupObelisk()
 	{
 		AnimState corners = new AnimState("corners");

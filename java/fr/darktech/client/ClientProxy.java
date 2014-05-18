@@ -3,7 +3,6 @@ package fr.darktech.client;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import fr.darktech.DarkTech;
-import fr.darktech.client.render.AnimStates;
 import fr.darktech.client.render.IInventoryRenderer;
 import fr.darktech.client.render.InventoryRenderer;
 import fr.darktech.client.render.InventoryRenderer.TESRIndex;
@@ -35,7 +34,5 @@ public class ClientProxy extends CommonProxy {
     	RenderObelisk obelisk = new RenderObelisk();
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityObelisk.class, obelisk);
     	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.obeliskBlock,0), (IInventoryRenderer) obelisk);
-    	
-    	AnimStates.setupAnimationStates();
     }
 }
