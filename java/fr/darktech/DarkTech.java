@@ -1,6 +1,7 @@
 package fr.darktech;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -28,6 +29,7 @@ import fr.darktech.common.CommonProxy;
 import fr.darktech.event.BucketHandler;
 import fr.darktech.fluids.RedstoneFluid;
 import fr.darktech.items.ItemSoulIron;
+import fr.darktech.materials.MaterialRedstoneLiquid;
 import fr.darktech.network.NetworkManager;
 import fr.darktech.tiles.TileEntityGenerator;
 import fr.darktech.tiles.TileEntityGeneratorInvocator;
@@ -58,12 +60,14 @@ public class DarkTech {
 	public static Block redstoneFluidBlock;
 	public static Item redstoneBucket;
 	public static Fluid redstoneFluid;
+	
+	public static Material redstoneMaterial = new MaterialRedstoneLiquid();
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 		network = new NetworkManager();
 			
-		redstoneFluid = new Fluid("redfluid").setLuminosity(14).setViscosity(400).setTemperature(1000);
+		redstoneFluid = new Fluid("redfluid").setLuminosity(14).setViscosity(500).setTemperature(1000);
 		FluidRegistry.registerFluid(redstoneFluid);
 		
 		redstoneFluidBlock = new RedstoneFluid(redstoneFluid).setCreativeTab(tabDarkTech).setBlockName("RedstoneFluid").setBlockTextureName("redstone_block");
@@ -83,12 +87,13 @@ public class DarkTech {
     	GameRegistry.registerTileEntity(TileEntityGenerator.class, "TileEntityGenerator");
     	GameRegistry.registerTileEntity(TileEntityGeneratorInvocator.class, "TileEntityGeneratorInvocator");
     	GameRegistry.registerTileEntity(TileEntityObelisk.class, "TileEntityObelisk");
+    	
     	proxy.registerRender();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	FMLCommonHandler.instance().bus().register(new BucketHandler());
+    	MinecraftForge.EVENT_BUS.register(new BucketHandler());
     }
     
     @SubscribeEvent
