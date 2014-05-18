@@ -7,9 +7,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,6 +25,7 @@ import fr.darktech.blocks.BlockGenerator;
 import fr.darktech.blocks.BlockGeneratorInvocator;
 import fr.darktech.blocks.BlockObelisk;
 import fr.darktech.common.CommonProxy;
+import fr.darktech.event.BucketHandler;
 import fr.darktech.fluids.RedstoneFluid;
 import fr.darktech.items.ItemSoulIron;
 import fr.darktech.network.NetworkManager;
@@ -85,7 +88,7 @@ public class DarkTech {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	
+    	FMLCommonHandler.instance().bus().register(new BucketHandler());
     }
     
     @SubscribeEvent
