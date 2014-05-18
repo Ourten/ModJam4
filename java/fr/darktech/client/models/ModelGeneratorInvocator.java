@@ -221,7 +221,7 @@ public class ModelGeneratorInvocator extends ModelBase
 	
 	public void renderArm(int arm) {
 		switch(arm) {
-			case 0:
+			case 1:
 		        Arm1.rotateAngleY = -1.570796F;
 				Arm1.renderWithRotation(0.0625F);
 
@@ -243,7 +243,7 @@ public class ModelGeneratorInvocator extends ModelBase
 		        Arm16.rotateAngleY = -1.570796F;
 		        Arm16.renderWithRotation(0.0625f);
 				break;
-			case 1:
+			case 2:
 		        Arm2.rotateAngleY = -3.141593F;
 				Arm2.renderWithRotation(0.0625F);
 
@@ -265,7 +265,7 @@ public class ModelGeneratorInvocator extends ModelBase
 		        Arm26.rotateAngleY = -3.141593F;
 		        Arm26.renderWithRotation(0.0625f);
 				break;
-			case 2:
+			case 3:
 		        Arm3.rotateAngleY = 1.570796F;
 				Arm3.renderWithRotation(0.0625F);
 		        Arm31.rotateAngleY = 1.570796F;
@@ -286,7 +286,7 @@ public class ModelGeneratorInvocator extends ModelBase
 		        Arm36.rotateAngleY = 1.570796F;
 		        Arm36.renderWithRotation(0.0625f);
 				break;
-			case 3:
+			case 0:
 				Arm4.renderWithRotation(0.0625F);
 		        Arm41.renderWithRotation(0.0625f);
 		        Arm42.renderWithRotation(0.0625f);
