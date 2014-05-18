@@ -68,7 +68,6 @@ public class TileEntityGenerator extends BaseTileGenerator
 			return true;
 		for(AnimState state : generatorStates)
 		{
-			System.out.println(state.getPercent());
 			if(!state.isFinished())
 				return false;
 		}
@@ -80,37 +79,37 @@ public class TileEntityGenerator extends BaseTileGenerator
 	public void setupGenerator()
 	{
 		AnimState pillars = new AnimState("pillars");
-		pillars.setSpeed(0.002f);
+		pillars.setSpeed(0.004f);
 		generatorStates.add(pillars);
 		
 		AnimState walls = new AnimState("walls");
 		walls.addDepend(pillars, 0.25f);
-		walls.setSpeed(0.0015f);
+		walls.setSpeed(0.003f);
 		generatorStates.add(walls);
 		
 		AnimState wallsPillars = new AnimState("wallPillars");
 		wallsPillars.addDepend(pillars, 0.20f);
-		wallsPillars.setSpeed(0.001f);
+		wallsPillars.setSpeed(0.002f);
 		generatorStates.add(wallsPillars);
 		
 		AnimState secondWalls = new AnimState("secondWalls");
 		secondWalls.addDepend(walls, 1f);
-		secondWalls.setSpeed(0.003f);
+		secondWalls.setSpeed(0.006f);
 		generatorStates.add(secondWalls);
 		
 		AnimState redstone = new AnimState("redstone");
 		redstone.addDepend(walls, 1f);
-		redstone.setSpeed(0.002f);
+		redstone.setSpeed(0.004f);
 		generatorStates.add(redstone);
 		
 		AnimState tubes = new AnimState("tubes");
 		tubes.addDepend(secondWalls, 1f);
-		tubes.setSpeed(0.001f);
+		tubes.setSpeed(0.002f);
 		generatorStates.add(tubes);
 		
 		AnimState color = new AnimState("color");
 		color.addDepend(tubes,1f);
-		color.setSpeed(0.002f);
+		color.setSpeed(0.004f);
 		generatorStates.add(color);
 	}
 
@@ -176,6 +175,5 @@ public class TileEntityGenerator extends BaseTileGenerator
 		{
 			this.tickGeneratorStates();
 		}
-		System.out.println(FMLCommonHandler.instance().getEffectiveSide()+" | "+this.isGeneratorFinished());
 	}
 }
