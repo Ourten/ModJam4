@@ -11,7 +11,7 @@ import fr.darktech.DarkTech;
 import fr.darktech.client.models.ModelObelisk;
 import fr.darktech.tiles.TileEntityObelisk;
 
-public class RenderObelisk extends TileEntitySpecialRenderer
+public class RenderObelisk extends TileEntitySpecialRenderer implements IInventoryRenderer
 {
 	private ModelObelisk MODEL_OBELISK = new ModelObelisk();
 	private ResourceLocation TEX_OBELISK = new ResourceLocation(DarkTech.modidFolder, "textures/blocks/model_obelisk.png");
@@ -31,6 +31,12 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 		GL11.glPushMatrix();
 		GL11.glTranslated(x+0.5, y+1.5, z+0.5);
 		GL11.glRotated(180, 0, 0, 1);
+		
+		if(obelisk == null) {
+			GL11.glScaled(0.5, 0.5, 0.5);
+			GL11.glTranslated(0, 2, 0);
+		}
+		
 		this.bindTexture(TEX_OBELISK);
 		this.MODEL_OBELISK.renderBase();
 		if(!AnimStates.obeliskStates.get(0).isFinished())
@@ -103,5 +109,11 @@ public class RenderObelisk extends TileEntitySpecialRenderer
 			else
 				varLight = varLight+0.003f;
 		}
+	}
+	
+	@Override
+	public void renderInventory(double x, double y, double z) 
+	{
+		renderObelisk(null, x, y, z);
 	}
 }
