@@ -1,7 +1,9 @@
 package fr.darktech.fluids;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
@@ -11,10 +13,10 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import fr.darktech.DarkTech;
 
 public class RedstoneFluid extends BlockFluidClassic
 {
-
 	@SideOnly(Side.CLIENT)
 	protected IIcon stillIcon;
 
@@ -23,7 +25,7 @@ public class RedstoneFluid extends BlockFluidClassic
 
 	public RedstoneFluid(Fluid fluid)
 	{
-		super(fluid, Material.water);
+		super(fluid, DarkTech.redstoneMaterial);
 		this.setBlockName("RedstoneFluid");
 	}
 
@@ -50,30 +52,9 @@ public class RedstoneFluid extends BlockFluidClassic
     @Override
     public void velocityToAddToEntity(World world, int x, int y, int z, Entity entity, Vec3 vec)
     {
-        vec.xCoord = 0;
+    	super.velocityToAddToEntity(world, x, y, z, entity, vec);
+        /*vec.xCoord = 0;
         vec.yCoord = 0;
-        vec.zCoord = 0;
+        vec.zCoord = 0;*/
     }
-	
-	@Override
-	public boolean canDisplace(IBlockAccess world, int x, int y, int z)
-	{
-		if (world.getBlock(x, y, z).getMaterial().isLiquid())
-		{
-			return false;
-		}
-
-		return super.canDisplace(world, x, y, z);
-	}
-
-	@Override
-	public boolean displaceIfPossible(World world, int x, int y, int z)
-	{
-		if (world.getBlock(x, y, z).getMaterial().isLiquid())
-		{
-			return false;
-		}
-
-		return super.displaceIfPossible(world, x, y, z);
-	}
 }
