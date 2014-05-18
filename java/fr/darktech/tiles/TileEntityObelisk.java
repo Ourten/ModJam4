@@ -37,11 +37,15 @@ public class TileEntityObelisk extends TileEntity
 	
 	public boolean isObeliskFinished()
 	{
+		if(this.finishDeploy)
+			return true;
 		for(AnimState state : obeliskStates)
 		{
 			if(!state.isFinished())
 				return false;
 		}
+		this.finishDeploy = true;
+		this.startDeploy = false;
 		return true;
 	}
 	

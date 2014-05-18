@@ -37,20 +37,20 @@ public class RenderObelisk extends TileEntitySpecialRenderer implements IInvento
 		
 		this.bindTexture(TEX_OBELISK);
 		obelisk.MODEL_OBELISK.renderBase();
-		if(!obelisk.obeliskStates.get(0).isFinished())
+		if(obelisk.isStartDeploy() && !obelisk.obeliskStates.get(0).isFinished())
 			obelisk.MODEL_OBELISK.renderPillars(obelisk.obeliskStates.get(0).getPercent());
 		else
 		{
 			obelisk.MODEL_OBELISK.renderPillars();
 			
-			if(obelisk.obeliskStates.get(6).isFinished())
+			if(obelisk.isObeliskFinished())
 			{
 				GL11.glDisable(GL11.GL_LIGHTING);
 				GL11.glColor3d(0, varLight, 0);
 			}
 			else
 			{
-				if(obelisk.obeliskStates.get(6).getPercent() != 0)
+				if(obelisk.isStartDeploy() && obelisk.obeliskStates.get(6).getPercent() != 0)
 				{
 					GL11.glDisable(GL11.GL_LIGHTING);
 					GL11.glColor3d(0, obelisk.obeliskStates.get(6).getPercent()+0.3f, 0);
@@ -62,22 +62,22 @@ public class RenderObelisk extends TileEntitySpecialRenderer implements IInvento
 			GL11.glColor3f(1, 1, 1);
 		}
 		
-		if(!obelisk.obeliskStates.get(1).isFinished())
+		if(obelisk.isStartDeploy() && !obelisk.obeliskStates.get(1).isFinished())
 			obelisk.MODEL_OBELISK.renderPillarsCorners(obelisk.obeliskStates.get(1).getPercent());
 		else
 			obelisk.MODEL_OBELISK.renderPillarsCorners();
 		
-		if(!obelisk.obeliskStates.get(2).isFinished())
+		if(obelisk.isStartDeploy() && !obelisk.obeliskStates.get(2).isFinished())
 			obelisk.MODEL_OBELISK.renderWalls(obelisk.obeliskStates.get(2).getPercent());
 		else
 			obelisk.MODEL_OBELISK.renderWalls();
 		
-		if(!obelisk.obeliskStates.get(3).isFinished())
+		if(obelisk.isStartDeploy() && !obelisk.obeliskStates.get(3).isFinished())
 			obelisk.MODEL_OBELISK.renderSecondWalls(obelisk.obeliskStates.get(3).getPercent());
 		else
 			obelisk.MODEL_OBELISK.renderSecondWalls();
 		
-		if(!obelisk.obeliskStates.get(4).isFinished())
+		if(obelisk.isStartDeploy() && !obelisk.obeliskStates.get(4).isFinished())
 			obelisk.MODEL_OBELISK.renderPillarsWalls(obelisk.obeliskStates.get(4).getPercent());
 		else
 			obelisk.MODEL_OBELISK.renderPillarsWalls();
@@ -88,7 +88,7 @@ public class RenderObelisk extends TileEntitySpecialRenderer implements IInvento
 		GL11.glDepthMask(false);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		
-		if(!obelisk.obeliskStates.get(5).isFinished())
+		if(obelisk.isStartDeploy() && !obelisk.obeliskStates.get(5).isFinished())
 			obelisk.MODEL_OBELISK.renderLogo(obelisk.obeliskStates.get(5).getPercent());
 		else
 			obelisk.MODEL_OBELISK.renderLogo();
@@ -98,9 +98,8 @@ public class RenderObelisk extends TileEntitySpecialRenderer implements IInvento
 		GL11.glEnable(GL11.GL_LIGHTING);
 		
 		GL11.glPopMatrix();
-		obelisk.tickObeliskStates();
 		
-		if(obelisk.isObeliskFinished())
+		if(obelisk.isObeliskFinished() || !obelisk.isStartDeploy())
 		{
 			if(revertedLight)
 				varLight = varLight-0.003f;

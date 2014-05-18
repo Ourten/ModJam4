@@ -53,7 +53,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer implements IInven
 		else
 			generator.MODEL_GENERATOR.renderSecondWalls();
 		
-		if(generator.isStartDeploy() && generator.generatorStates.get(5).isFinished())
+		if(generator.isGeneratorFinished())
 		{
 			GL11.glColor3d(0, varLight, 0);
 			GL11.glDisable(GL11.GL_LIGHTING);
@@ -74,7 +74,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer implements IInven
 		else
 			generator.MODEL_GENERATOR.renderTubes();
 		
-		if(generator.isStartDeploy() && generator.generatorStates.get(5).isFinished())
+		if(generator.isGeneratorFinished())
 			GL11.glColor3d(0, 0.9+varLight/10, 0);
 		
 		if(generator.isStartDeploy() && !generator.generatorStates.get(4).isFinished())
@@ -106,7 +106,7 @@ public class RenderGenerator extends TileEntitySpecialRenderer implements IInven
 				varLight = varLight+0.003f*generator.generatorStates.get(6).getPercent();
 		}
 		
-		if(generator.isGeneratorFinished())
+		if(generator.isGeneratorFinished() || !generator.isStartDeploy())
 		{
 			if(revertedLight)
 				varLight = varLight-0.003f;

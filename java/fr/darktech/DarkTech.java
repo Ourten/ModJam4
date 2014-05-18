@@ -24,7 +24,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import fr.darktech.blocks.BlockGenerator;
 import fr.darktech.blocks.BlockGeneratorInvocator;
 import fr.darktech.blocks.BlockObelisk;
-import fr.darktech.client.render.AnimStates;
 import fr.darktech.common.CommonProxy;
 import fr.darktech.event.BucketHandler;
 import fr.darktech.fluids.RedstoneFluid;
@@ -87,8 +86,6 @@ public class DarkTech {
 		GameRegistry.registerTileEntity(TileEntityGenerator.class, "TileEntityGenerator");
 		GameRegistry.registerTileEntity(TileEntityGeneratorInvocator.class, "TileEntityGeneratorInvocator");
 		GameRegistry.registerTileEntity(TileEntityObelisk.class, "TileEntityObelisk");
-
-		AnimStates.setupAnimationStates();
 
 		proxy.registerRender();
 	}

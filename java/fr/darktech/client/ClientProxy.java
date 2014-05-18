@@ -32,6 +32,5 @@ public class ClientProxy extends CommonProxy {
     	
     	RenderObelisk obelisk = new RenderObelisk();
     	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityObelisk.class, obelisk);
-    	InventoryRenderer.blockByTESR.put(new TESRIndex(DarkTech.obeliskBlock,0), (IInventoryRenderer) obelisk);
     }
 }
